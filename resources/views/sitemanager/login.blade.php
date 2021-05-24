@@ -1,10 +1,10 @@
 @extends('sitemanager._layouts.app')
-@section('content')
+@section('base-content')
 <div class="container">
     <div class="col-md-4 offset-md-4 mt-5">
         <div class="card">
-            <div class="card-header">
-                <h3 class="text-center">Form Login</h3>
+            <div class="card-header bg-primary">
+                <h3 class="text-white">Form Login</h3>
             </div>
             <form action="{{ route('login') }}" method="post">
             @csrf
@@ -34,7 +34,7 @@
                 @endif
                 <div class="form-group">
                     <label for=""><strong>Username</strong></label>
-                    <input type="text" name="name" class="form-control" placeholder="Username">
+                    <input type="text" name="username" class="form-control" placeholder="Username">
                 </div>
                 <div class="form-group">
                     <label for=""><strong>Password</strong></label>
@@ -43,7 +43,7 @@
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-block">Log In</button>
-                <p class="text-center">Belum punya akun? <a href="{{ route('register') }}">Register</a> sekarang!</p>
+                {{-- <p class="text-center">Belum punya akun? <a href="{{ route('register') }}">Register</a> sekarang!</p> --}}
             </div>
             </form>
         </div>

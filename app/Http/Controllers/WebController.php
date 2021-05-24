@@ -10,4 +10,9 @@ class WebController extends Controller
     {
         return view('web.index');
     }
+
+    public function post()
+    {
+        return view('web.post');
+    }
 }

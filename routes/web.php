@@ -17,6 +17,7 @@ use App\Http\Controllers\Manager\HomeController;
 */
 
 Route::get('/', [ WebController::class, 'index' ]);
+Route::get('/post', [ WebController::class, 'post' ]);
 
 Route::prefix('sitemanager')->group(function() {
 

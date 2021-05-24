@@ -1,5 +1,5 @@
 @extends('sitemanager._layouts.default')
-@section('top_script')
+@section('top-script')
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <style>
     body {
@@ -8,9 +8,10 @@
     }
 </style>
 @endsection
-@section('bottom_script')
+@section('bottom-script')
 <script src="{{ asset('js/app.js') }}"></script>
 @endsection
-@section('base_content')
-    @yield('content')
+@section('base-content')
+  @include('sitemanager._layouts.navbar')
+  @yield('content')
 @endsection

@@ -23,12 +23,12 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $rules = [
-            "name" => 'required|string',
+            "username" => 'required|string',
             "password" => 'required|string',
         ];
 
         $messages = [
-            "name.required" => "Email wajib diisi",
+            "username.required" => "Username wajib diisi",
             // "email.email" => "Email tidak valid",
             "password.required" => "Password wajib diisi",
         ];
@@ -40,7 +40,7 @@ class AuthController extends Controller
         }
 
         $input = [
-            "name" => $request->name,
+            "username" => $request->username,
             "password" => $request->password
         ];
 
@@ -63,16 +63,15 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $rules = [
-            "name" => "required|min:3|max:35",
-            "email" => "required|email|unique:users,email",
+            "username" => "required|min:5|max:35",
+            "email" => "email|unique:users,email",
             "password" => "required|confirmed"
         ];
 
         $messages = [
-            'name.required'         => 'Nama Lengkap wajib diisi',
-            'name.min'              => 'Nama lengkap minimal 3 karakter',
-            'name.max'              => 'Nama lengkap maksimal 35 karakter',
-            'email.required'        => 'Email wajib diisi',
+            'username.required'         => 'Username Lengkap wajib diisi',
+            'username.min'              => 'Username lengkap minimal 5 karakter',
+            'username.max'              => 'Username lengkap maksimal 35 karakter',
             'email.email'           => 'Email tidak valid',
             'email.unique'          => 'Email sudah terdaftar',
             'password.required'     => 'Password wajib diisi',
@@ -86,7 +85,7 @@ class AuthController extends Controller
         }
 
         $user = new User;
-        $user->name = ucwords(strtolower($request->name));
+        $user->username = ucwords(strtolower($request->username));
         $user->email = strtolower($request->email);
         $user->password = Hash::make($request->password);
         $user->email_verified_at = \Carbon\Carbon::now();
