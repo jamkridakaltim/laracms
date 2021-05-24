@@ -1,6 +1,6 @@
 @extends('web._layouts.app')
 @section('top-content')
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide bg-light d-none d-sm-block" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -8,8 +8,8 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <div class="media p-4">
-        <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="256" class="mr-3" alt="...">
+      <div class="media p-3">
+        <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="200" class="mr-3" alt="...">
         <div class="media-body">
           <h5 class="h3 mt-0">Media heading</h5>
           <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia. <br> <a href="#" class="badge badge-warning">Selengkapnya...</a></p>
@@ -17,8 +17,8 @@
       </div>
     </div>
     <div class="carousel-item">
-      <div class="media p-4">
-        <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="256" class="mr-3" alt="...">
+      <div class="media p-3">
+        <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="200" class="mr-3" alt="...">
         <div class="media-body">
           <h5 class="h3 mt-0">Media heading</h5>
           <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia. <br> <a href="#" class="badge badge-warning">Selengkapnya...</a></p>
@@ -26,8 +26,8 @@
       </div>
     </div>
     <div class="carousel-item">
-      <div class="media p-4">
-        <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="256" class="mr-3" alt="...">
+      <div class="media p-3">
+        <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="200" class="mr-3" alt="...">
         <div class="media-body">
           <h5 class="h3 mt-0">Media heading</h5>
           <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia. <br> <a href="#" class="badge badge-warning">Selengkapnya...</a></p>
@@ -46,6 +46,7 @@
 </div>
 <div class="p-1 bg-warning"></div>
 @endsection
+
 @section('content')
   <div class="card border-white">
     <div class="px-4 py-3 bg-success text-white">
@@ -66,7 +67,7 @@
             </a>
             <div class="media-body">
               <h5 class="mt-0">Media heading</h5>
-              <p>Greetings loved ones let's take a journey. Yes, we make angels cry, raining down on earth from up above. Give you something good to celebrate. I used to bite my tongue and hold my breath. I'm ma get your heart racing in my skin-tight jeans. As I march alone to a different beat. Summer after high school when we first met. You're so hypnotizing, could you be the devil? Could you be an angel? It's time to bring out the big balloons. Thought that I was the exception. Bikinis, zucchinis, Martinis, no weenies.</p>
+              <p>Greetings loved ones let's take a journey. Yes, we make angels cry, raining down on earth from up above. Give you something good to celebrate. I used to bite my tongue and hold my breath</p>
             </div>
           </div>
         </div>
@@ -78,7 +79,7 @@
   <img src="https://indagkop.kaltimprov.go.id/asset/foto_iklantengah/STOP_GRATIFIKASI1.jpg" class="img-fluid">
 
   <div class="row py-4">
-    <div class="col">
+    <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
         <div class="px-4 py-3 bg-success text-white">
           <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> SEPUTAR INDAGKOP</span>
@@ -89,7 +90,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
         <div class="px-4 py-3 bg-success text-white">
           <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> ARTIKEL INDAGKOP</span>
@@ -105,7 +106,7 @@
   <img src="https://indagkop.kaltimprov.go.id/asset/foto_iklantengah/PUBLIKASI.jpg" class="img-fluid">
 
   <div class="row py-4">
-    <div class="col">
+    <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
         <div class="px-4 py-3 bg-success text-white">
           <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> PENGUMUMAN</span>
@@ -116,7 +117,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
         <div class="px-4 py-3 bg-success text-white">
           <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> NASIONAL</span>

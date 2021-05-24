@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
+<nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #e3fde3;">
   <div class="container">
     <a class="navbar-brand" href="#">Site Manager</a>
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

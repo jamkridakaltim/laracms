@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex row bg-dark">
-    <div class="p-2 bg-success text-white">Breaking News!</div>
+    <div class="p-2 bg-success text-white rounded-right">Breaking News !</div>
     <div class="col-8 p-2 bg-dark">
       <marquee class="text-white">
         <a href="#" class="text-warning"><i class="bi bi-file-richtext mr-2"></i>Jalin Silaturahim, Tingkatkan Ibadah Pasca Ramadhan</a> &nbsp; - &nbsp;
@@ -9,7 +9,7 @@
         <a href="#" class="text-warning"><i class="bi bi-file-richtext mr-2"></i>Roby Tutup Pasar Murah</a>
       </marquee>
     </div>
-    <div class="col p-2 bg-success text-white">
+    <div class="col p-2 bg-success text-white rounded-left">
       <div class="digital_clock_wrapper">
         {{ today()->format("l, d F Y") }},
         <span id="digit_clock_time"></span> WITA
@@ -35,19 +35,22 @@
   </div>
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-  <a class="navbar-brand" href="#"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="px-2 py-2 navbar-expand-lg navbar-dark bg-success">
+  {{-- <a class="navbar-brand" href="#"></a> --}}
+
+  <div class="text-right">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon small"></span>
+    </button>
+  </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/">BERANDA <span class="sr-only">(current)</span></a>
+      <li class="nav-item active">
+        <a class="nav-link text-white" href="/">BERANDA <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           TENTANG KAMI
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -63,7 +66,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           PROGRAM DAN KEGIATAN
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -76,7 +79,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           BIDANG DAN UPTD
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -100,7 +103,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           BERITA
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -112,7 +115,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           INFORMASI
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -123,7 +126,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           LAYANAN
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -131,7 +134,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           PPID
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
