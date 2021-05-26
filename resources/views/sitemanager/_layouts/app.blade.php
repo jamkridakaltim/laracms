@@ -4,7 +4,7 @@
 <style>
     body {
         min-height: 75rem;
-        padding-top: 4.5rem;
+        /* padding-top: 4.5rem; */
     }
 </style>
 @endsection
@@ -13,5 +13,7 @@
 @endsection
 @section('base-content')
   @include('sitemanager._layouts.navbar')
-  @yield('content')
+  <main role="main" class="container pt-4">
+    @yield('content')
+  </main>
 @endsection

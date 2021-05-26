@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Manager\HomeController;
+use App\Http\Controllers\Manager\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,9 @@ Route::prefix('sitemanager')->group(function() {
         Route::get('/home', function(){
             return redirect()->route('sitemanager.index');
         });
+
+        Route::resource('menu' ,MenuController::class);
+
         Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
     });
