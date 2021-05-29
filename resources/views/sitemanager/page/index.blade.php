@@ -1,7 +1,7 @@
 @extends('sitemanager._layouts.app')
 @section('content')
   <div class="d-flex justify-content-between pb-2">
-    <h5 class="h4">Menu</h5>
+    <h5 class="h4">Halaman - Posting</h5>
     <div class="text-right">
       <a href="{{ route('sitemanager.menu.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus-circle"></i> Tambah</a>
     </div>
@@ -10,7 +10,7 @@
     <table class="table table-sm table-bordered table-hover">
       <thead class="bg-primary">
         <th class="text-white text-center" width="50">#</th>
-        <th class="text-white">Nama</th>
+        <th class="text-white">Name</th>
         <th class="text-white text-center" width="80"><i class="bi-file-text"></i></th>
       </thead>
       <tbody>

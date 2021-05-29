@@ -46,7 +46,7 @@
           <a href="{{ url('/') }}" target="_blank" class="nav-link text-white"><i class="bi bi-arrow-up-right-circle-fill"></i> Preview</a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('logout') }}" class="nav-link text-white"><i class="bi bi-power"></i> Logout</a>
+          <a href="{{ route('sitemanager.logout') }}" class="nav-link text-white"><i class="bi bi-power"></i> Logout</a>
         </li>
       </ul>
     </div>

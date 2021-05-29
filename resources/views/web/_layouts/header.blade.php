@@ -1,3 +1,4 @@
+@inject('menu', 'App\Services\MenuService')
 <div class="container">
   <div class="d-flex row bg-dark">
     <div class="p-2 bg-success text-white rounded-right">Breaking News !</div>
@@ -46,7 +47,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      @foreach ($menu->menus() as $index => $item)
+      <li class="nav-item">
+        <a href="{{ url($item->url) }}" class="nav-link text-white">{{ strtoupper($item->name) }}</a>
+      </li>
+      @endforeach
+      {{-- <li class="nav-item active">
         <a class="nav-link text-white" href="/">BERANDA <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
@@ -85,7 +91,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item small" href="#">Koperasi dan UMKM</a>
           <a class="dropdown-item small" href="#">Industri</a>
-          {{-- <div class="dropright">
+          <div class="dropright">
             <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Industri
             </a>
@@ -95,7 +101,7 @@
               <a class="dropdown-item small" href="#">SENTRA IKM TERITIP</a>
               <a class="dropdown-item small" href="#">SIDIN</a>
             </div>
-          </div> --}}
+          </div>
           <a class="dropdown-item small" href="#">Perdagangan</a>
           <a class="dropdown-item small" href="#">PKPB</a>
           <a class="dropdown-item small" href="#">UPTD. BPSMB</a>
@@ -148,7 +154,7 @@
           <a class="dropdown-item small" href="#">Daftar Informasi Publik</a>
           <a class="dropdown-item small" href="#">Formulir Permohonan</a>
         </div>
-      </li>
+      </li> --}}
     </ul>
     {{-- <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

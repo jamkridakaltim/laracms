@@ -17,7 +17,12 @@ use App\Http\Controllers\Manager\MenuController;
 |
 */
 
-Route::get('/', [ WebController::class, 'index' ]);
+Route::get('/', [ WebController::class, 'index' ])->name('beranda');
+
+Route::get('beranda', function(){
+    return redirect()->route('beranda');
+});
+
 Route::get('/post', [ WebController::class, 'post' ]);
 
 Route::prefix('sitemanager')->group(function() {
@@ -28,9 +33,9 @@ Route::prefix('sitemanager')->group(function() {
     Route::get('/register', [ AuthController::class, 'showFormRegister'])->name('register');
     Route::post('/register', [ AuthController::class, 'register']);
 
-    Route::middleware(['auth'])->group(function() {
+    Route::middleware(['auth'])->name('sitemanager.')->group(function() {
 
-        Route::get('/', [ HomeController::class, 'index'])->name('sitemanager.index');
+        Route::get('/', [ HomeController::class, 'index'])->name('index');
         Route::get('/home', function(){
             return redirect()->route('sitemanager.index');
         });
