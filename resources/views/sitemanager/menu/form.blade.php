@@ -20,10 +20,7 @@
         <label for="" class="form-label">Url</label>
         <input type="text" name="url" class="form-control" value="{{ old('url')}}">
       </div>
-      <div class="form-group">
-        <label class="form-label">Konten</label>
-        <textarea id="content" name="content" class="description form-control">{{ old('content') }}</textarea>
-      </div>
+
       <div class="d-flex justify-content-between pt-2">
         <div>
           @if(old('id'))
@@ -40,16 +37,4 @@
   </div>
 </div>
 
-@endsection
-@section('bottom-script')
-  @parent
-  <script>
-      tinymce.init({
-        selector: '#content',
-        height: 350,
-        plugins: 'print code preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
-        toolbar1: 'formatselect fontsizeselect | bold italic strikethrough forecolor backcolor | link image | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
-        image_advtab: true,
-      });
-  </script>
 @endsection
