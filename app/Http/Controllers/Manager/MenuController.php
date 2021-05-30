@@ -11,7 +11,10 @@ class MenuController extends Controller
     public function index()
     {
 
-        $menu = Menu::paginate();
+        $menu = Menu::whereNull('parent_id')->paginate();
+        $menu->each(function($item){
+            $item->subitem = Menu::where('parent_id', $item->id)->get();
+        });
         return view('sitemanager.menu.index', compact('menu'));
     }
 

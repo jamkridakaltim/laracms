@@ -8,6 +8,12 @@ class MenuService
 {
     public function menus()
     {
-        return Menu::get();
+        $menu = Menu::whereNull('parent_id')->get();
+
+        $menu->each(function($item){
+            $item->submenu = Menu::where('parent_id', $item->id)->get();
+        });
+
+        return $menu;
     }
 }

@@ -49,7 +49,14 @@
     <ul class="navbar-nav mr-auto">
       @foreach ($menu->menus() as $index => $item)
       <li class="nav-item">
-        <a href="{{ url($item->url) }}" class="nav-link text-white">{{ strtoupper($item->name) }}</a>
+        <a href="{{ url('/'.$item->link) }}" class="nav-link {{$item->submenu->count() > 0 ? 'dropdown-toggle': ''}} {{ active_link([url('/'.$item->link)]) }}" {{$item->submenu->count() > 0 ? 'data-toggle=dropdown': ''}}>{{ strtoupper($item->name) }}</a>
+        @if($item->submenu->count() > 0)
+        <div class="dropdown-menu">
+        @foreach ($item->submenu as $subindex => $subitem)
+            <a href="{{ $subitem->link }}" class="dropdown-item small">{{ $subitem->name }}</a>
+        @endforeach
+        </div>
+        @endif
       </li>
       @endforeach
       {{-- <li class="nav-item active">
