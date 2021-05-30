@@ -38,8 +38,8 @@
     </form>
   </div>
 </div>
-
 @endsection
+
 @section('bottom-script')
   @parent
   <script>

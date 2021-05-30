@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-primary">
   <div class="container">
-    <a class="navbar-brand text-white" href="#">Site Manager</a>
+    <a class="navbar-brand text-white" href="#">CMS</a>
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

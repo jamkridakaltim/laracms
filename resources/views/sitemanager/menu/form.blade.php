@@ -12,15 +12,23 @@
     <form action="{{ $action }}" method="POST" class="bg-white p-4">
       @csrf
       @method($method)
+
+      @if($parent != null)
       <div class="form-group">
-        <label for="" class="form-label">Nama</label>
+        <label for="" class="form-label">Nama Menu</label>
+        <input type="hidden" name="parent_id" value="{{ $parent->id }}">
+        <input type="text" name="parent" class="form-control" value="{{ $parent->name }}">
+      </div>
+      @endif
+
+      <div class="form-group">
+        <label for="" class="form-label">Nama {{ $parent == null ? 'Menu' : 'Submenu'}}</label>
         <input type="text" name="name" class="form-control" value="{{ old('name')}}">
       </div>
       <div class="form-group">
         <label for="" class="form-label">Url</label>
         <input type="text" name="url" class="form-control" value="{{ old('url')}}">
       </div>
-
       <div class="d-flex justify-content-between pt-2">
         <div>
           @if(old('id'))
