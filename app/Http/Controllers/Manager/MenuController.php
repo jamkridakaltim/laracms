@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Menu;
 
 class MenuController extends Controller
@@ -45,7 +46,12 @@ class MenuController extends Controller
             $method = 'POST';
         }
 
-        return view('sitemanager.menu.form', compact('action', 'method'));
+        $parent = null;
+        if(request()->get('id')){
+            $parent = Menu::find(request()->get('id'));
+        }
+
+        return view('sitemanager.menu.form', compact('action', 'method', 'parent'));
     }
 
     public function store()
@@ -67,7 +73,14 @@ class MenuController extends Controller
         }
 
         $menu->name = request()->input('name');
-        $menu->url = request()->input('url');
+        $menu->parent_id = request()->input('parent_id');
+
+        if(!is_null(request()->input('url'))){
+            $menu->url = url(Str::slug(request()->input('url')));
+        }else{
+            $menu->url = url(Str::slug(request()->input('name')));
+        }
+
         $menu->save();
 
         return redirect()->route('sitemanager.menu.index')->withMessage('Selamat');
