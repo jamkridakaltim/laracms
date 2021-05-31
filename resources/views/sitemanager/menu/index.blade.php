@@ -23,15 +23,17 @@
             <a href="{{ route('sitemanager.menu.edit', $item->id) }}" class="icon"><i class="bi-file-text"></i></a>
           </td>
         </tr>
-          @foreach ($item->subitem as $subIndex => $subItem)
-          <tr>
-            <td class="text-center">{{ $index + 1 .".".$subIndex + 1 }}</td>
-            <td>{{ $subItem->name }}</td>
-            <td class="text-center">
-              <a href="{{ route('sitemanager.menu.edit', [$subItem->id, 'id' => $item->id]) }}" class="icon"><i class="bi-file-text"></i></a>
-            </td>
-          </tr>
-          @endforeach
+          @if($item->subitem->count() > 0)
+            @foreach ($item->subitem as $subIndex => $subItem)
+            <tr>
+              <td class="text-center">{{ ($index + 1 ) .".". ($subIndex + 1) }}</td>
+              <td>{{ $subItem->name }}</td>
+              <td class="text-center">
+                <a href="{{ route('sitemanager.menu.edit', [$subItem->id, 'id' => $item->id]) }}" class="icon"><i class="bi-file-text"></i></a>
+              </td>
+            </tr>
+            @endforeach
+          @endif
         @empty
         <tr>
           <td colspan="3" class="text-center"><em>Data tidak ada</em></td>
