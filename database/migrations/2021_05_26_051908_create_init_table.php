@@ -22,6 +22,7 @@ class CreateInitTable extends Migration
             $table->string('tags')->nullable();
             $table->text('content');
             $table->string('type')->default('post');
+            $table->integer('type_id')->nullable();
             $table->integer('read')->default(0);
             $table->smallInteger('status')->default(1);
             $table->dateTime('published_at')->nullable();
@@ -35,6 +36,7 @@ class CreateInitTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->smallInteger('status')->default(1);
+            $table->timestamps();
         });
 
         /* Files */
@@ -64,6 +66,7 @@ class CreateInitTable extends Migration
             $table->tinyInteger('order')->default(0);
             $table->tinyInteger('status')->default(1);
             $table->tinyInteger('lock')->default(0);
+            $table->timestamps();
         });
 
         /* Setting */

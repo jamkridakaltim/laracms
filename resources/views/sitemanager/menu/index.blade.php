@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-between pb-2">
     <h5 class="h4">Menu</h5>
     <div class="text-right">
-      <a href="{{ route('sitemanager.menu.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus-circle"></i> Tambah</a>
+      <a href="{{ route('sitemanager.menu.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus-circle"></i> Create</a>
     </div>
   </div>
   <div class="bg-white">
@@ -19,8 +19,10 @@
           <td class="text-center">{{ $index + 1 }}</td>
           <td>{{ $item->name }}</td>
           <td class="text-center">
+            @if($item->lock != 1)
             <a href="{{ route('sitemanager.menu.create', ['id' => $item->id]) }}" class="icon"><i class="bi-plus"></i></a>
             <a href="{{ route('sitemanager.menu.edit', $item->id) }}" class="icon"><i class="bi-file-text"></i></a>
+            @endif
           </td>
         </tr>
           @if($item->subitem->count() > 0)

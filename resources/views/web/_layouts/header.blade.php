@@ -48,12 +48,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       @foreach ($menu->menus() as $index => $item)
-      <li class="nav-item {{ active_link([$item->url]) }}">
-        <a href="{{ $item->url }}" class="nav-link text-white {{$item->submenu->count() > 0 ? 'dropdown-toggle': ''}}" {{$item->submenu->count() > 0 ? 'data-toggle=dropdown': ''}}>{{ strtoupper($item->name) }}</a>
+      <li class="nav-item {{ active_link([$item->link]) }}">
+        <a href="{{ check_url($item->link) ? $item->link : url("/".$item->link) }}" target="{{ check_url($item->link) ? "_blank" : "" }}" class="nav-link text-white {{$item->submenu->count() > 0 ? 'dropdown-toggle': ''}}" {{$item->submenu->count() > 0 ? 'data-toggle=dropdown': ''}}>{{ strtoupper($item->name) }}</a>
         @if($item->submenu->count() > 0)
         <div class="dropdown-menu">
         @foreach ($item->submenu as $subindex => $subitem)
-            <a href="{{ $subitem->url }}" class="dropdown-item small">{{ $subitem->name }}</a>
+            <a href="{{ check_url($subitem->link) ? $subitem->link : url("/".$subitem->link) }}" target="{{ check_url($subitem->link) ? "_blank" : "" }}" class="dropdown-item small">{{ $subitem->name }}</a>
         @endforeach
         </div>
         @endif

@@ -5,6 +5,7 @@ use App\Http\Controllers\WebController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Manager\HomeController;
 use App\Http\Controllers\Manager\MenuController;
+use App\Http\Controllers\Manager\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,8 @@ Route::get('beranda', function(){
     return redirect()->route('beranda');
 });
 
-Route::get('/post', [ WebController::class, 'post' ]);
+Route::get('/post/{post}', [ WebController::class, 'post' ]);
+Route::get('/page/{page}', [ WebController::class, 'page' ]);
 
 Route::prefix('sitemanager')->group(function() {
 
@@ -41,6 +43,7 @@ Route::prefix('sitemanager')->group(function() {
         });
 
         Route::resource('menu' ,MenuController::class);
+        Route::resource('page' ,PageController::class);
 
         Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 

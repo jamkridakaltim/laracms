@@ -6,7 +6,7 @@
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url('images/bg.jpeg');
+    background-image: url("/images/bg.jpeg");
     background-size: cover;
   }
 </style>
@@ -44,6 +44,16 @@
   currentTime();
 
 </script>
+  @if(session()->has('error'))
+  <script>
+    swal.fire({
+      title: 'Error!',
+      text: '{!! session("error") !!}',
+      icon: 'error',
+      heightAuto: false,
+    })
+  </script>
+  @endif
 @endsection
 
 @section('base_content')

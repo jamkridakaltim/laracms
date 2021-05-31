@@ -24,7 +24,7 @@
   @if(session()->has('error'))
   <script>
     swal.fire({
-      title: 'error!',
+      title: 'Error!',
       text: '{!! session("error") !!}',
       icon: 'error',
       heightAuto: false,

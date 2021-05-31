@@ -18,5 +18,12 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'password' => \Hash::make('admin'),
         ]);
+
+        \App\Models\Menu::create([
+            'name' => 'Beranda',
+            'link' => "",
+            'status' => 1,
+            'lock' => 1,
+        ]);
     }
 }

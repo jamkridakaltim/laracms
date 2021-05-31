@@ -12,6 +12,12 @@ if(!function_exists('rp')) {
     }
 }
 
+if(!function_exists('check_url')) {
+    function check_url($word){
+        return strpos($word, "http") !== FALSE;
+    }
+}
+
 if(!function_exists('terbilang')) {
     function terbilang($nominal, $suffix=' rupiah', $prefix='')
     {

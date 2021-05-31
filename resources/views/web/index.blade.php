@@ -14,7 +14,7 @@
         <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="200" class="mr-3" alt="...">
         <div class="media-body">
           <h5 class="h3 mt-0">Media heading</h5>
-          <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia. <br> <a href="#" class="badge badge-warning">Selengkapnya...</a></p>
+          <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia. <br> <a href="{{ url("/post/remaster") }}" class="badge badge-warning">Selengkapnya...</a></p>
         </div>
       </div>
     </div>
