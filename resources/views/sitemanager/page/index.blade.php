@@ -11,6 +11,7 @@
       <thead class="bg-primary">
         <th class="text-white text-center" width="50">#</th>
         <th class="text-white">Title</th>
+        <th class="text-white text-center" width="80">Status</th>
         <th class="text-white text-center" width="80"><i class="bi-file-text"></i></th>
       </thead>
       <tbody>
@@ -18,13 +19,14 @@
         <tr>
           <td class="text-center">{{ $index + 1 }}</td>
           <td>{{ $item->title }}</td>
+          <td class="text-center text-{{ $item->status == 1 ? 'success' : 'danger' }}">{{ $item->status == 1 ? 'On' : 'Off' }}</td>
           <td class="text-center">
             <a href="{{ route('sitemanager.page.edit', $item->id) }}" class="icon"><i class="bi-file-text"></i></a>
           </td>
         </tr>
         @empty
         <tr>
-          <td colspan="3" class="text-center"><em>Data tidak ada</em></td>
+          <td colspan="4" class="text-center"><em>Data tidak ada</em></td>
         </tr>
         @endforelse
       </tbody>

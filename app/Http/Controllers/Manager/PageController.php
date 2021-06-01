@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Post\Post as Page;
+use App\Models\Menu;
 
 class PageController extends Controller
 {
@@ -42,7 +43,9 @@ class PageController extends Controller
             $method = "POST";
         }
 
-        return view('sitemanager.page.form', compact('action', 'method'));
+        $menu = Menu::active()->get();
+
+        return view('sitemanager.page.form', compact('action', 'method', 'menu'));
     }
 
     public function store()
@@ -63,14 +66,14 @@ class PageController extends Controller
             $page = new Page;
         }
 
-        $page->category_id = request()->input('category_id');
+        // $page->category_id = request()->input('category_id');
         $page->title = request()->input('title');
         $page->slug = Str::slug(request()->input('title'));
         $page->tags = request()->input('tags');
         $page->content = request()->input('content');
         $page->type = "page";
-        $page->type_id = request()->input('type_id');
-        $page->status = request()->input('status')?:1;
+        $page->type_id = request()->input('menu_id');
+        $page->status = request()->input('status') == 'on' ? 1 : 0;
         $page->published_at = request()->input('published_at')?:today();
         $page->user_id = \Auth::user()->id;
 

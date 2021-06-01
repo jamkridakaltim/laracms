@@ -13,13 +13,13 @@
             <a class="nav-link text-white" href="{{ url('sitemanager/menu') }}"><i class="bi-menu-button"></i> Menu</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="{{ url('sitemanager/page') }}"><i class="bi-file-text"></i> Page</a>
+            <a class="nav-link text-white" href="{{ url('sitemanager/page') }}"><i class="bi-file-text"></i> Pages</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-file-richtext"></i> Post</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Categories</a>
-            <a class="dropdown-item" href="#">Post</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/post')}}">Posts</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/post-category')}}">Categories</a>
           </div>
         </li>
         <li class="nav-item">

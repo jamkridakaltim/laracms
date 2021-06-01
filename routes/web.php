@@ -6,6 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Manager\HomeController;
 use App\Http\Controllers\Manager\MenuController;
 use App\Http\Controllers\Manager\PageController;
+use App\Http\Controllers\Manager\PostController;
+use App\Http\Controllers\Manager\PostCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +46,8 @@ Route::prefix('sitemanager')->group(function() {
 
         Route::resource('menu' ,MenuController::class);
         Route::resource('page' ,PageController::class);
+        Route::resource('post' ,PostController::class);
+        Route::resource('post-category' ,PostCategoryController::class);
 
         Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 

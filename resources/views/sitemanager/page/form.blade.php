@@ -16,13 +16,21 @@
         <label for="" class="form-label">Title</label>
         <input type="text" name="title" class="form-control" value="{{ old('title')}}">
       </div>
-      {{-- <div class="form-group">
-        <label for="" class="form-label">Url</label>
-        <input type="text" name="url" class="form-control" value="{{ old('url')}}">
-      </div> --}}
+      <div class="form-group">
+        <label for="" class="form-label">Menu</label>
+        <select name="menu_id" class="form-control">
+          @foreach ($menu as $key => $item)
+            <option value="{{ $item->id }}">{{ $item->name }}</option>
+          @endforeach
+        </select>
+      </div>
       <div class="form-group">
         <label class="form-label">Konten</label>
         <textarea id="content" name="content" class="description form-control">{{ old('content') }}</textarea>
+      </div>
+      <div class="custom-control custom-switch">
+        <input type="checkbox" name="status" class="custom-control-input" id="customSwitch1" {{ old('status') == 1 ? 'checked' : '' }}>
+        <label class="custom-control-label" for="customSwitch1">Aktif</label>
       </div>
       <div class="d-flex justify-content-between pt-2">
         <div>

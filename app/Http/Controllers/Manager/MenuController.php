@@ -86,7 +86,9 @@ class MenuController extends Controller
 
         $menu->save();
 
-        return redirect()->route('sitemanager.menu.index')->withMessage('Selamat');
+        $message = sprintf("Data Telah di %s ", $id ? 'simpan' : 'tambahkan');
+
+        return redirect()->route('sitemanager.menu.index')->withMessage($message);
     }
 
     public function destroy($id)

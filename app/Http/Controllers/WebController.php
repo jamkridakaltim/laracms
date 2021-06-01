@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Menu;
 use App\Models\Post\Post;
 use App\Models\Post\Post as Page;
+use App\Models\User;
 
 class WebController extends Controller
 {
@@ -17,9 +18,11 @@ class WebController extends Controller
     public function post($post)
     {
         $post = Post::where('slug', $post)->first();
+        $user = User::find($post->user_id);
         if(!$post){
             return redirect()->route('beranda')->withError('Berita Tidak Lengkap, Hubungi Admin');
         }
+
         return view('web.post', compact('post'));
     }
 
@@ -27,11 +30,12 @@ class WebController extends Controller
     {
         $menu = Menu::where('slug', $page)->first();
         $page = Page::where('type', 'page')->where('type_id', $menu->id)->first();
+        $user = User::find($page->user_id);
 
         if(!$page){
             return redirect()->route('beranda')->withError('Halaman Belum Tersedia, Hubungi Admin');
         }
 
-        return view('web.page', compact('page'));
+        return view('web.page', compact('page', 'user'));
     }
 }

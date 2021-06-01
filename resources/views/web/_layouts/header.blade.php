@@ -12,7 +12,7 @@
     </div>
     <div class="col p-2 bg-success text-white rounded-left">
       <div class="digital_clock_wrapper">
-        {{ today()->format("l, d F Y") }},
+        {{ date_indo(today()) }},
         <span id="digit_clock_time"></span> WITA
         {{-- <div id="digit_clock_date"></div> --}}
       </div>
