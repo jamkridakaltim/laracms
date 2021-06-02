@@ -30,7 +30,7 @@ class WebController extends Controller
     {
         $menu = Menu::where('slug', $page)->first();
         $page = Page::where('type', 'page')->where('type_id', $menu->id)->first();
-        $user = User::find($page->user_id);
+        $user = User::find(data_get($page,'user_id'));
 
         if(!$page){
             return redirect()->route('beranda')->withError('Halaman Belum Tersedia, Hubungi Admin');

@@ -59,7 +59,8 @@ class CreateInitTable extends Migration
         Schema::create('menus', function($table){
             $table->increments('id');
             $table->string('name', 100);
-            $table->string('link');
+            $table->string('slug');
+            $table->string('link')->nullable();
             $table->string('icon', 30)->nullable();
             $table->integer('parent_id')->nullable();
             $table->string('position')->nullable();
