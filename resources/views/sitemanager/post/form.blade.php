@@ -13,16 +13,16 @@
       @csrf
       @method($method)
       <div class="form-group">
-        <label for="" class="form-label">Title</label>
-        <input type="text" name="title" class="form-control" value="{{ old('title')}}">
-      </div>
-      <div class="form-group">
         <label for="" class="form-label">Category</label>
         <select name="category_id" class="form-control">
           @foreach ($categories as $key => $item)
             <option value="{{ $item->id }}" {{ selected(old('category_id'), $item->id) }}>{{ $item->name }}</option>
           @endforeach
         </select>
+      </div>
+      <div class="form-group">
+        <label for="" class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" value="{{ old('title')}}">
       </div>
       <div class="form-group">
         <label class="form-label">Konten</label>

@@ -3,14 +3,14 @@
   <button class="btn btn-sm btn-outline-success" type="submit">Go !</button>
 </form>
 
-<div class="card border-white mb-3">
+{{-- <div class="card border-white mb-3">
   <div class="embed-responsive embed-responsive-16by9 mb-2">
     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
   </div>
   <div class="embed-responsive embed-responsive-16by9 mb-2">
     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
   </div>
-</div>
+</div> --}}
 
 
 <div class="card border-white mb-3">
@@ -31,107 +31,41 @@
     <!-- Tab panes -->
     <div class="tab-content">
       <div class="tab-pane active" id="terpopuler" role="tabpanel" aria-labelledby="terpopuler-tab">
+        @foreach ($populer as $index => $item)
         <div class="media py-2">
           <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
           <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
+            <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
           </div>
         </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
+        @endforeach
       </div>
       <div class="tab-pane" id="terkini" role="tabpanel" aria-labelledby="terkini-tab">
+        @foreach ($news as $index => $item)
         <div class="media py-2">
           <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
           <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
+            <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
           </div>
         </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
+        @endforeach
       </div>
       <div class="tab-pane" id="agenda" role="tabpanel" aria-labelledby="agenda-tab">
+        @foreach ($agenda as $index => $item)
         <div class="media py-2">
           <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
           <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
+            <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
           </div>
         </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
-        <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-          <div class="media-body">
-            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
 
   </div>
 </div>
 
-<div class="card border-white mb-3">
+{{-- <div class="card border-white mb-3">
   <div class="px-4 py-3 bg-success text-white">
     <span class="h5"><i class="bi bi-list mr-2"></i> DAFTAR HARGA</span>
   </div>
@@ -186,25 +120,27 @@
       </div>
     </div>
   </marquee>
-</div>
+</div> --}}
 
 <div class="card border-white mb-3">
   <div class="px-4 py-3 bg-success text-white">
     <span class="h5"><i class="bi bi-bar-chart-steps mr-2"></i> POLLING</span>
   </div>
   <div class="p-1 bg-warning"></div>
-  <div class="py-2">
-    <ul class="list-group pb-2">
-      <li class="list-group-item bg-secondary text-white" aria-current="true">BAGAIMANAKAH KINERJA INSTANSI DINAS ?</li>
-      <li class="list-group-item"><input type="radio" name="vote" id=""> Kurang</li>
-      <li class="list-group-item"><input type="radio" name="vote" id=""> Cukup</li>
-      <li class="list-group-item"><input type="radio" name="vote" id=""> Baik</li>
-      <li class="list-group-item"><input type="radio" name="vote" id=""> Sangat Baik</li>
-      <li class="list-group-item"><input type="radio" name="vote" id=""> Tidak Tahu</li>
-    </ul>
-    <button type="submit" class="btn btn-sm btn-block btn-outline-warning">Kirim</button>
-    <a href="#" class="btn btn-sm btn-block btn-warning">Lihat Polling</a>
-  </div>
+  <form action="{{ route('vote-polling') }}" method="post">
+    @csrf
+    @method('POST')
+    <div class="py-2">
+      <ul class="list-group pb-2">
+        <li class="list-group-item bg-secondary text-white" aria-current="true">{{ $polling->content }}</li>
+        @foreach ($polling['answer'] as $index => $item)
+          <li class="list-group-item"><input type="radio" name="vote" id="" value="{{ $item->id }}"> {{ $item->content }}</li>
+        @endforeach
+      </ul>
+      <button type="submit" class="btn btn-sm btn-block btn-outline-warning">Kirim</button>
+      <a href="{{ url('/polling/'. $polling->id )}}" class="btn btn-sm btn-block btn-warning">Lihat Polling</a>
+    </div>
+  </form>
 </div>
 
 <div class="card border-white mb-3">

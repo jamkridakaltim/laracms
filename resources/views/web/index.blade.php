@@ -9,33 +9,21 @@
   </ol>
 
   <div class="carousel-inner">
-    <div class="carousel-item active">
+
+    @foreach ($news as $index => $item)
+    <div class="carousel-item {{ $index == 0 ? 'active' : ''}}">
       <div class="media p-3">
         <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="200" class="mr-3" alt="...">
         <div class="media-body">
-          <h5 class="h3 mt-0">Media heading</h5>
-          <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia. <br> <a href="{{ url("/post/remaster") }}" class="badge badge-warning">Selengkapnya...</a></p>
+          <a href="{{ url("/post/".$item->slug) }}" class="text-success"><h5 class="h3 mt-0">{{ $item->title }}</h5></a>
+          <div>
+            {!! tagline($item->content, 500) !!}
+          </div>
         </div>
       </div>
     </div>
-    <div class="carousel-item">
-      <div class="media p-3">
-        <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="200" class="mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="h3 mt-0">Media heading</h5>
-          <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia. <br> <a href="#" class="badge badge-warning">Selengkapnya...</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="media p-3">
-        <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="200" class="mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="h3 mt-0">Media heading</h5>
-          <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia. <br> <a href="#" class="badge badge-warning">Selengkapnya...</a></p>
-        </div>
-      </div>
-    </div>
+    @endforeach
+
   </div>
 
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -58,23 +46,15 @@
     <div class="p-1 bg-warning"></div>
 
     <div class="p-2">
-      <div class="media">
-        <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0">Media heading</h5>
-          <p>Standing on the frontline when the bombs start to fall. Heaven is jealous of our love, angels are crying from up above. Can't replace you with a million rings. Boy, when you're with me I'll give you a taste. There’s no going back. Before you met me I was alright but things were kinda heavy. Heavy is the head that wears the crown.</p>
-
-          <div class="media mt-3">
-            <a class="mr-3" href="#">
-              <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" alt="...">
-            </a>
-            <div class="media-body">
-              <h5 class="mt-0">Media heading</h5>
-              <p>Greetings loved ones let's take a journey. Yes, we make angels cry, raining down on earth from up above. Give you something good to celebrate. I used to bite my tongue and hold my breath</p>
-            </div>
+        @foreach ($news as $index => $item)
+        <div class="media py-2">
+          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
+          <div class="media-body">
+            <a href="{{ url("/post/".$item->slug) }}" class="text-success">{{ $item->title }}</a>
+            {!! tagline($item->content, 500) !!}
           </div>
         </div>
-      </div>
+        @endforeach
     </div>
 
   </div>
@@ -89,7 +69,15 @@
         </div>
         <div class="p-1 bg-warning"></div>
         <div class="p-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, voluptatem rem minus id, quasi quo aut consequuntur possimus nostrum corporis vero sapiente aliquam repudiandae nisi autem libero. Dolores, unde sint.
+          @foreach ($news as $index => $item)
+          <div class="media py-2">
+            <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
+            <div class="media-body">
+              <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
+              <p class="small">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
+            </div>
+          </div>
+          @endforeach
         </div>
       </div>
     </div>
@@ -100,7 +88,15 @@
         </div>
         <div class="p-1 bg-warning"></div>
         <div class="p-2">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus reprehenderit consectetur voluptate cum dolore provident! Fugit neque nemo in? Recusandae sit exercitationem necessitatibus placeat ab facilis porro, ut iusto minima?
+          @foreach ($article as $index => $item)
+          <div class="media py-2">
+            <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
+            <div class="media-body">
+              <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
+              <p class="small">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
+            </div>
+          </div>
+          @endforeach
         </div>
       </div>
     </div>
@@ -116,7 +112,15 @@
         </div>
         <div class="p-1 bg-warning"></div>
         <div class="p-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, voluptatem rem minus id, quasi quo aut consequuntur possimus nostrum corporis vero sapiente aliquam repudiandae nisi autem libero. Dolores, unde sint.
+          @foreach ($announcement as $index => $item)
+          <div class="media py-2">
+            <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
+            <div class="media-body">
+              <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
+              <p class="small">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
+            </div>
+          </div>
+          @endforeach
         </div>
       </div>
     </div>
@@ -127,7 +131,15 @@
         </div>
         <div class="p-1 bg-warning"></div>
         <div class="p-2">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus reprehenderit consectetur voluptate cum dolore provident! Fugit neque nemo in? Recusandae sit exercitationem necessitatibus placeat ab facilis porro, ut iusto minima?
+          @foreach ($national as $index => $item)
+          <div class="media py-2">
+            <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
+            <div class="media-body">
+              <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
+              <p class="small">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
+            </div>
+          </div>
+          @endforeach
         </div>
       </div>
     </div>

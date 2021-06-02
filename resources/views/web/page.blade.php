@@ -10,11 +10,11 @@
     <div class="py-1">
     </div>
     <div class="py-2">
-      <a class="mr-2" href="#">
+      {{-- <a class="mr-2" href="#">
         <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" class="img-fluid" alt="...">
-      </a>
+      </a> --}}
       <div class="py-2">
-        <h5 class="mt-0">{{ $page->title }}</h5>
+        {{-- <h5 class="mt-0">{{ $page->title }}</h5> --}}
         {!! $page->content !!}
       </div>
     </div>

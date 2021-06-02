@@ -15,10 +15,20 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        \App\Models\User::create([
-            'username' => 'admin',
-            'password' => \Hash::make('admin'),
-        ]);
+        $users = [
+            [
+                'username' => 'super',
+                'password' => \Hash::make('remaster'),
+                'level' => 'super',
+            ],
+            [
+                'username' => 'admin',
+                'password' => \Hash::make('admin'),
+                'level' => 'admin',
+            ],
+        ];
+
+        \App\Models\User::insert($users);
 
         \App\Models\Menu::create([
             'name' => 'Beranda',

@@ -82,7 +82,7 @@ class MenuController extends Controller
             $menu->link = "page/". Str::slug(request()->input('name'));
         }
 
-        $menu->status = 1;
+        $menu->status = request()->input('status') == 'on' ? 1 : 0;
 
         $menu->save();
 

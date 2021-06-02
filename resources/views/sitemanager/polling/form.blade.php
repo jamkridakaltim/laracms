@@ -3,7 +3,7 @@
 <div class="row justify-content-center pb-2">
   <div class="col-lg-8">
     <h1 class="h4">
-      {{ old('id') ? 'Edit' : 'Create' }} Menu
+      {{ old('id') ? 'Edit' : 'Create' }} Polling
     </h1>
   </div>
 </div>
@@ -15,24 +15,15 @@
 
       @if($parent != null)
       <div class="form-group">
-        <label for="" class="form-label">Menu</label>
+        <label for="" class="form-label">Polling</label>
         <input type="hidden" name="parent_id" value="{{ $parent->id }}">
-        <input type="text" name="parent" class="form-control" value="{{ $parent->name }}">
+        <input type="text" name="parent" class="form-control" value="{{ $parent->content }}">
       </div>
       @endif
 
       <div class="form-group">
-        <label for="" class="form-label">Name {{ $parent == null ? '' : 'Submenu'}}</label>
-        <input type="text" name="name" class="form-control" value="{{ old('name')}}">
-      </div>
-      <div class="form-group">
-        <label for="" class="form-label">Link</label>
-        <input type="text" name="link" class="form-control" value="{{ old('link')}}">
-        <small class="text-muted">** Fill if Link External (optional)</small>
-      </div>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" name="status" class="custom-control-input" id="customSwitch1" {{ old('status') == 1 ? 'checked' : '' }}>
-        <label class="custom-control-label" for="customSwitch1">Aktif</label>
+        <label for="" class="form-label">Name {{ $parent == null ? '' : 'Answer'}}</label>
+        <input type="text" name="content" class="form-control" value="{{ old('content')}}">
       </div>
       <div class="d-flex justify-content-between pt-2">
         <div>

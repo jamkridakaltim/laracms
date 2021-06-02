@@ -13,17 +13,21 @@
       @csrf
       @method($method)
       <div class="form-group">
-        <label for="" class="form-label">Title</label>
-        <input type="text" name="title" class="form-control" value="{{ old('title')}}">
-      </div>
-      <div class="form-group">
         <label for="" class="form-label">Menu</label>
         <select name="menu_id" class="form-control">
           @foreach ($menu as $key => $item)
-            <option value="{{ $item->id }}">{{ $item->name }}</option>
+              <optgroup label="{{ strtoupper($item->name) }}">
+                @foreach ($item->subitem as $subindex => $subitem)
+                  <option value="{{ $subitem->id }}" {{ selected(old('type_id'),$subitem->id) }}>{{ $subitem->name }}</option>
+                @endforeach
+              </optgroup>
           @endforeach
         </select>
       </div>
+      {{-- <div class="form-group">
+        <label for="" class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" value="{{ old('title')}}">
+      </div> --}}
       <div class="form-group">
         <label class="form-label">Konten</label>
         <textarea id="content" name="content" class="description form-control">{{ old('content') }}</textarea>

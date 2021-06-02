@@ -13,8 +13,9 @@
             <a class="nav-link text-white" href="{{ url('sitemanager/menu') }}"><i class="bi-menu-button"></i> Menu</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="{{ url('sitemanager/page') }}"><i class="bi-file-text"></i> Pages</a>
+            <a class="nav-link text-white" href="{{ url('sitemanager/page') }}"><i class="bi-file-text"></i> Page</a>
         </li>
+        @if(data_get(Auth::user(), 'level') == 'super')
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-file-richtext"></i> Post</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -22,21 +23,24 @@
             <a class="dropdown-item" href="{{ url('sitemanager/post-category')}}">Categories</a>
           </div>
         </li>
+        @else
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{{ url('sitemanager/post') }}"><i class="bi-file-richtext"></i> Post</a>
+        </li>
+        @endif
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/polling') }}"><i class="bi-list-stars"></i> Polling</a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/agenda') }}"><i class="bi-calendar3"></i> Agenda</a>
-        </li>
+        </li> --}}
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/file') }}"><i class="bi-archive"></i> File</a>
         </li>
-        {{-- <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li> --}}
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-sliders"></i> Setting</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="#">Setup</a>
             <a class="dropdown-item" href="#">Profile</a>
             <a class="dropdown-item" href="#">User</a>
             {{-- <a class="dropdown-item" href="#">Something else here</a> --}}

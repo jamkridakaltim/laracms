@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Manager\HomeController;
 use App\Http\Controllers\Manager\MenuController;
 use App\Http\Controllers\Manager\PageController;
+use App\Http\Controllers\Manager\PollingController;
 use App\Http\Controllers\Manager\PostController;
 use App\Http\Controllers\Manager\PostCategoryController;
 
@@ -28,6 +29,8 @@ Route::get('beranda', function(){
 
 Route::get('/post/{post}', [ WebController::class, 'post' ]);
 Route::get('/page/{page}', [ WebController::class, 'page' ]);
+Route::get('/polling/{polling}', [ WebController::class, 'page_polling' ])->name('polling');
+Route::post('/polling', [ WebController::class, 'vote_polling' ])->name('vote-polling');
 
 Route::prefix('sitemanager')->group(function() {
 
@@ -48,6 +51,7 @@ Route::prefix('sitemanager')->group(function() {
         Route::resource('page' ,PageController::class);
         Route::resource('post' ,PostController::class);
         Route::resource('post-category' ,PostCategoryController::class);
+        Route::resource('polling' ,PollingController::class);
 
         Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 

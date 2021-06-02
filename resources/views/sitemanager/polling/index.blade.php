@@ -1,9 +1,9 @@
 @extends('sitemanager._layouts.app')
 @section('content')
   <div class="d-flex justify-content-between pb-2">
-    <h5 class="h4">Menu</h5>
+    <h5 class="h4">Polling</h5>
     <div class="text-right">
-      <a href="{{ route('sitemanager.menu.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus-circle"></i> Create</a>
+      <a href="{{ route('sitemanager.polling.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus-circle"></i> Create</a>
     </div>
   </div>
   <div class="bg-white">
@@ -11,30 +11,25 @@
       <thead class="bg-primary">
         <th class="text-white text-center" width="50">#</th>
         <th class="text-white">Nama</th>
-        <th class="text-white">Status</th>
         <th class="text-white text-center" width="80"><i class="bi-file-text"></i></th>
       </thead>
       <tbody>
-        @forelse ($menu as $index => $item )
+        @forelse ($polling as $index => $item )
         <tr class="bg-gray-200">
           <td class="text-center">{{ $index + 1 }}</td>
-          <td>{{ $item->name }}</td>
-          <td class="text-center text-{{ $item->status == 1 ? 'success' : 'danger' }}">{{ $item->status == 1 ? 'On' : 'Off' }}</td>
+          <td>{{ $item->content }}</td>
           <td class="text-center">
-            @if($item->lock != 1)
-            <a href="{{ route('sitemanager.menu.create', ['id' => $item->id]) }}" class="icon"><i class="bi-plus"></i></a>
-            <a href="{{ route('sitemanager.menu.edit', $item->id) }}" class="icon"><i class="bi-file-text"></i></a>
-            @endif
+            <a href="{{ route('sitemanager.polling.create', ['id' => $item->id]) }}" class="icon"><i class="bi-plus"></i></a>
+            <a href="{{ route('sitemanager.polling.edit', $item->id) }}" class="icon"><i class="bi-file-text"></i></a>
           </td>
         </tr>
           @if($item->subitem->count() > 0)
             @foreach ($item->subitem as $subIndex => $subItem)
             <tr>
               <td class="text-center">{{ ($index + 1 ) .".". ($subIndex + 1) }}</td>
-              <td>{{ $subItem->name }}</td>
-              <td class="text-center text-{{ $item->status == 1 ? 'success' : 'danger' }}">{{ $item->status == 1 ? 'On' : 'Off' }}</td>
+              <td>{{ $subItem->content }}</td>
               <td class="text-center">
-                <a href="{{ route('sitemanager.menu.edit', [$subItem->id, 'id' => $item->id]) }}" class="icon"><i class="bi-file-text"></i></a>
+                <a href="{{ route('sitemanager.polling.edit', [$subItem->id, 'id' => $item->id]) }}" class="icon"><i class="bi-file-text"></i></a>
               </td>
             </tr>
             @endforeach

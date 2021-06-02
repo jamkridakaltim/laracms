@@ -43,7 +43,10 @@ class PageController extends Controller
             $method = "POST";
         }
 
-        $menu = Menu::active()->get();
+        $menu = Menu::whereNull('parent_id')->active()->get();
+        $menu->each(function($item){
+            $item->subitem = Menu::where('parent_id', $item->id)->active()->get();
+        });
 
         return view('sitemanager.page.form', compact('action', 'method', 'menu'));
     }
@@ -67,7 +70,10 @@ class PageController extends Controller
         }
 
         // $page->category_id = request()->input('category_id');
-        $page->title = request()->input('title');
+        $menu = Menu::find(request()->input('menu_id'));
+
+        $page->title = $menu->name;
+
         $page->slug = Str::slug(request()->input('title'));
         $page->tags = request()->input('tags');
         $page->content = request()->input('content');
@@ -79,7 +85,7 @@ class PageController extends Controller
 
         $page->save();
 
-        $message = sprintf("Data Telah di %s". $id ? 'simpan' : 'tambahkan');
+        $message = sprintf("Data Telah di %s", $id ? 'simpan' : 'tambahkan');
 
         return redirect()->route('sitemanager.page.index')->withMessage($message);
     }

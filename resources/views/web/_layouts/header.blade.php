@@ -4,10 +4,9 @@
     <div class="p-2 bg-success text-white rounded-right">Breaking News !</div>
     <div class="col-8 p-2 bg-dark">
       <marquee class="text-white">
-        <a href="#" class="text-warning"><i class="bi bi-file-richtext mr-2"></i>Jalin Silaturahim, Tingkatkan Ibadah Pasca Ramadhan</a> &nbsp; - &nbsp;
-        <a href="#" class="text-warning"><i class="bi bi-file-richtext mr-2"></i>Forum Konsultasi Teknis Penyusunan RPIK</a> &nbsp; - &nbsp;
-        <a href="#" class="text-warning"><i class="bi bi-file-richtext mr-2"></i>Pengawasan Menjelang Hari Raya</a> &nbsp; - &nbsp;
-        <a href="#" class="text-warning"><i class="bi bi-file-richtext mr-2"></i>Roby Tutup Pasar Murah</a>
+        @foreach ($news as $index => $item)
+          <a href="{{ url("/post/".$item->slug) }}" class="text-warning"><i class="bi bi-file-richtext mr-2"></i>{{ $item->title }}</a> &nbsp; - &nbsp;
+        @endforeach
       </marquee>
     </div>
     <div class="col p-2 bg-success text-white rounded-left">

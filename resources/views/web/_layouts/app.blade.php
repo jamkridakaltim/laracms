@@ -6,7 +6,7 @@
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url("/images/bg.jpeg");
+    background-image: url("/images/bg-opacity-50.jpg");
     background-size: cover;
   }
 </style>
