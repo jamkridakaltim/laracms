@@ -134,7 +134,7 @@
       <ul class="list-group pb-2">
         <li class="list-group-item bg-secondary text-white" aria-current="true">{{ $polling->content }}</li>
         @foreach ($polling['answer'] as $index => $item)
-          <li class="list-group-item"><input type="radio" name="vote" id="" value="{{ $item->id }}"> {{ $item->content }}</li>
+          <li class="list-group-item"><input type="radio" name="vote" id="" value="{{ $item->id }}" required> {{ $item->content }}</li>
         @endforeach
       </ul>
       <button type="submit" class="btn btn-sm btn-block btn-outline-warning">Kirim</button>
