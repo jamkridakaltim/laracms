@@ -1,11 +1,11 @@
-@extends('sitemanager._layouts.app')
+@extends('sitemanager._layouts.app', ['bodyClass' => 'bg-img'])
 @section('base-content')
 <div class="container">
     <div class="col-md-4 offset-md-4 mt-5">
         <div class="card">
-            <div class="card-header bg-primary">
+            {{-- <div class="card-header bg-primary">
                 <h3 class="text-white">Form Login</h3>
-            </div>
+            </div> --}}
             <form action="{{ route('login') }}" method="post">
             @csrf
             <div class="card-body">
@@ -42,11 +42,14 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                <button type="submit" class="btn bg-purple btn-block text-white">Log In</button>
                 {{-- <p class="text-center">Belum punya akun? <a href="{{ route('register') }}">Register</a> sekarang!</p> --}}
             </div>
             </form>
         </div>
     </div>
+</div>
+<div class="fixed-bottom d-block w-100 text-center mb-5">
+  © 2021 All rights reserved. &nbsp; Tim Pengembang Website {{ config('app.name') }}.
 </div>
 @endsection

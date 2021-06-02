@@ -34,7 +34,7 @@
         {{-- <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/agenda') }}"><i class="bi-calendar3"></i> Agenda</a>
         </li> --}}
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/file') }}"><i class="bi-archive"></i> File</a>
         </li>
         <li class="nav-item dropdown">
@@ -43,9 +43,8 @@
             <a class="dropdown-item" href="#">Setup</a>
             <a class="dropdown-item" href="#">Profile</a>
             <a class="dropdown-item" href="#">User</a>
-            {{-- <a class="dropdown-item" href="#">Something else here</a> --}}
           </div>
-        </li>
+        </li> --}}
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">

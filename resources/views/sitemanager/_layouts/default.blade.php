@@ -9,7 +9,7 @@
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> --}}
     @yield('top-script')
 </head>
-<body class="bg-light">
+<body class="{{ $bodyClass ?? 'bg-img'}}">
     @yield('base-content')
     @yield('bottom-script')
 </body>

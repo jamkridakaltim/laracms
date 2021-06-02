@@ -1,4 +1,4 @@
-@extends('sitemanager._layouts.default')
+@extends('sitemanager._layouts.default', ['bodyClass' => 'bg-light'])
 @section('top-script')
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <style>
@@ -6,6 +6,13 @@
         min-height: 75rem;
         /* padding-top: 4.5rem; */
     }
+  .bg-img{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url("/images/bg-opacity-50.jpg");
+    background-size: cover;
+  }
 </style>
 @endsection
 @section('bottom-script')
