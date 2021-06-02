@@ -1,14 +1,14 @@
 @extends('sitemanager._layouts.app')
 @section('content')
 <div class="row justify-content-center pb-2">
-  <div class="col-lg-8">
+  <div class="col-lg-12">
     <h1 class="h4">
       {{ old('id') ? 'Edit' : 'Create' }} Page
     </h1>
   </div>
 </div>
 <div class="row justify-content-center">
-  <div class="col-lg-8">
+  <div class="col-lg-12">
     <form action="{{ $action }}" method="POST" class="bg-white p-4">
       @csrf
       @method($method)
@@ -29,7 +29,7 @@
         <input type="text" name="title" class="form-control" value="{{ old('title')}}">
       </div> --}}
       <div class="form-group">
-        <label class="form-label">Konten</label>
+        <label class="form-label">Content</label>
         <textarea id="content" name="content" class="description form-control">{{ old('content') }}</textarea>
       </div>
       <div class="custom-control custom-switch">

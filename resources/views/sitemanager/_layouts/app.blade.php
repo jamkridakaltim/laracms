@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <style>
     body {
-        min-height: 75rem;
+        min-height: 50rem;
         /* padding-top: 4.5rem; */
     }
   .bg-img{

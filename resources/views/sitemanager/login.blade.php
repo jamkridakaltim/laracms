@@ -50,6 +50,6 @@
     </div>
 </div>
 <div class="fixed-bottom d-block w-100 text-center mb-5">
-  © 2021 All rights reserved. &nbsp; Tim Pengembang Website {{ config('app.name') }}.
+  © {{ tahun() }} All rights reserved. &nbsp; Tim Pengembang Website {{ config('app.name') }}.
 </div>
 @endsection
