@@ -51,7 +51,7 @@
           <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-success font-weight-bold">{{ $item->title }}</a>
-            {!! tagline($item->content, 500) !!}
+            {!! tagline($item->content, 200) !!}
           </div>
         </div>
         @endforeach

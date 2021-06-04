@@ -44,6 +44,16 @@
   currentTime();
 
 </script>
+  @if(session()->has('message'))
+  <script>
+    swal.fire({
+      title: 'Berhasil!',
+      text: '{!! session("message") !!}',
+      icon: 'success',
+      heightAuto: false,
+    })
+  </script>
+  @endif
   @if(session()->has('error'))
   <script>
     swal.fire({

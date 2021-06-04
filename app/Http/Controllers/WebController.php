@@ -15,43 +15,15 @@ class WebController extends Controller
     {
         return Post::whereHas('category', function($query){
             $query->where('name', '=', 'berita');
-        })->where('type', 'post')->orderBy('read', 'DESC')->take(5)->get();
+        })->where('type', 'post')->active()->orderBy('read', 'DESC')->take(5)->get();
     }
-
-    // public function news()
-    // {
-    //     return Post::whereHas('category', function($query){
-    //         $query->where('name', '=', 'berita');
-    //     })->where('type', 'post')->orderBy('created_at', 'DESC')->take(5)->get();
-    // }
 
     public function article($category)
     {
         return Post::whereHas('category', function($query) use ($category) {
             $query->where('name', '=', $category);
-        })->where('type', 'post')->orderBy('created_at', 'DESC')->take(5)->get();
+        })->where('type', 'post')->active()->orderBy('created_at', 'DESC')->take(5)->get();
     }
-
-    // public function announcement()
-    // {
-    //     return Post::whereHas('category', function($query){
-    //         $query->where('name', '=', 'pengumuman');
-    //     })->where('type', 'post')->orderBy('created_at', 'DESC')->take(5)->get();
-    // }
-
-    // public function agenda()
-    // {
-    //     return Post::whereHas('category', function($query){
-    //         $query->where('name', '=', 'agenda');
-    //     })->where('type', 'post')->orderBy('created_at', 'DESC')->take(5)->get();
-    // }
-
-    // public function agenda()
-    // {
-    //     return Post::whereHas('category', function($query){
-    //         $query->where('name', '=', 'agenda');
-    //     })->where('type', 'post')->orderBy('created_at', 'DESC')->take(5)->get();
-    // }
 
     public function polling()
     {
@@ -64,6 +36,7 @@ class WebController extends Controller
     {
         $populer = $this->populer();
         $polling = $this->polling();
+
         $news = $this->article('berita');
         $agenda = $this->article('agenda');
         $article = $this->article('artikel');
@@ -78,6 +51,7 @@ class WebController extends Controller
     {
         $populer = $this->populer();
         $polling = $this->polling();
+
         $news = $this->article('berita');
         $agenda = $this->article('agenda');
         $article = $this->article('artikel');
@@ -99,6 +73,7 @@ class WebController extends Controller
     {
         $populer = $this->populer();
         $polling = $this->polling();
+
         $news = $this->article('berita');
         $agenda = $this->article('agenda');
         $article = $this->article('artikel');
@@ -119,6 +94,7 @@ class WebController extends Controller
     {
         $populer = $this->populer();
         $polling = $this->polling();
+
         $news = $this->article('berita');
         $agenda = $this->article('agenda');
         $article = $this->article('artikel');
@@ -126,6 +102,7 @@ class WebController extends Controller
 
         $result = Polling::find($id);
         $result['answer'] = Polling::where('parent', $id)->get();
+        $result['total'] = Polling::where('parent', $id)->get()->sum('score');
 
         return view('web.page-polling', compact('result', 'news', 'populer', 'agenda', 'polling'));
     }
@@ -136,6 +113,6 @@ class WebController extends Controller
         $polling->score = $polling->score + 1;
         $polling->save();
 
-        return redirect()->route('polling', $polling->parent);
+        return redirect()->route('polling', $polling->parent)->withMessage('Terima kasih atas partisipasi anda');
     }
 }

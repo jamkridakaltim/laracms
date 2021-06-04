@@ -3,12 +3,12 @@
   <div class="d-flex justify-content-between pb-2">
     <h5 class="h4">Polling</h5>
     <div class="text-right">
-      <a href="{{ route('sitemanager.polling.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus-circle"></i> Create</a>
+      <a href="{{ route('sitemanager.polling.create') }}" class="btn btn-sm bg-purple text-white"><i class="bi bi-plus-circle"></i> Create</a>
     </div>
   </div>
   <div class="bg-white">
     <table class="table table-sm table-bordered table-hover">
-      <thead class="bg-primary">
+      <thead class="bg-purple">
         <th class="text-white text-center" width="50">#</th>
         <th class="text-white">Nama</th>
         <th class="text-white text-center" width="80"><i class="bi-file-text"></i></th>

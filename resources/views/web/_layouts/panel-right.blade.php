@@ -18,13 +18,13 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <a class="nav-link text-success active" id="terpopuler-tab" data-toggle="tab" href="#terpopuler" role="tab" aria-controls="terpopuler" aria-selected="true">Terpopuler</a>
+        <a class="nav-link text-success font-weight-bold active" id="terpopuler-tab" data-toggle="tab" href="#terpopuler" role="tab" aria-controls="terpopuler" aria-selected="true">Terpopuler</a>
       </li>
       <li class="nav-item" role="presentation">
-        <a class="nav-link text-success" id="terkini-tab" data-toggle="tab" href="#terkini" role="tab" aria-controls="terkini" aria-selected="false">Terkini</a>
+        <a class="nav-link text-success font-weight-bold" id="terkini-tab" data-toggle="tab" href="#terkini" role="tab" aria-controls="terkini" aria-selected="false">Terkini</a>
       </li>
       <li class="nav-item" role="presentation">
-        <a class="nav-link text-success" id="agenda-tab" data-toggle="tab" href="#agenda" role="tab" aria-controls="agenda" aria-selected="false">Agenda</a>
+        <a class="nav-link text-success font-weight-bold" id="agenda-tab" data-toggle="tab" href="#agenda" role="tab" aria-controls="agenda" aria-selected="false">Agenda</a>
       </li>
     </ul>
 
@@ -36,6 +36,7 @@
           <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
+            <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
           </div>
         </div>
         @endforeach
@@ -46,6 +47,7 @@
           <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
+            <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
           </div>
         </div>
         @endforeach
@@ -56,6 +58,7 @@
           <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
+            <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
           </div>
         </div>
         @endforeach
@@ -164,10 +167,10 @@
     <span class="h5">BANNER LINK</span>
   </div>
   <div class="p-1 bg-warning"></div>
-  <div class="py-2">
-      <img class="img-fluid border mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/kemenperin.jpg">
-      <img class="img-fluid border mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/depkop.jpg">
-      <img class="img-fluid border mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/kemendag1.jpg">
-      <img class="img-fluid border mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/PEMPROV4.jpg">
+  <div class="py-2 text-center">
+      <img class="img-fluid mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/kemenperin.jpg">
+      <img class="img-fluid mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/depkop.jpg">
+      <img class="img-fluid mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/kemendag1.jpg">
+      <img class="img-fluid mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/PEMPROV4.jpg">
   </div>
 </div>
