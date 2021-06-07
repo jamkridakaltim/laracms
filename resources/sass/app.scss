@@ -23,3 +23,7 @@ $my-colors: (
 @each $color, $value in $my-colors {
     @include bg-variant(".bg-#{$color}", $value);
 }
+
+// @each $color, $value in $my-colors {
+//     @include bg-variant(".text-#{$color}", $value);
+// }

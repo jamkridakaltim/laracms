@@ -1,17 +1,24 @@
-@extends('sitemanager._layouts.app', ['bodyClass' => 'bg-img'])
+@extends('sitemanager._layouts.app')
+@section('bodyClass', 'bg-img')
 @section('base-content')
 <div class="container">
     <div class="col-md-4 offset-md-4 mt-5">
-        <div class="card">
-            {{-- <div class="card-header bg-primary">
-                <h3 class="text-white">Form Login</h3>
-            </div> --}}
+
             <form action="{{ route('login') }}" method="post">
             @csrf
-            <div class="card-body">
-                @if(session('errors'))
+            <div class="bg-white shadow rounded p-4">
+                <div class="text-center">
+                  <img src="{{ url('/images/logo-kota-samarinda.png')}}" height="128" alt="" class="mb-2">
+                </div>
+                <div class="mb-4">
+                  {{-- <span class="font-weight-bold">Siteman </span><br> --}}
+                  <span class="font-weight-bold">PEMERINTAH KOTA SAMARINDA </span><br>
+                  <h1 class="h4 font-weight-bold">DINAS PERDAGANGAN</h1>
+                </div>
+
+                {{-- @if(session('errors'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        Something it's wrong:
+                        Peringatan:
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
@@ -31,22 +38,20 @@
                     <div class="alert alert-danger">
                         {{ Session::get('error') }}
                     </div>
-                @endif
+                @endif --}}
                 <div class="form-group">
-                    <label for=""><strong>Username</strong></label>
-                    <input type="text" name="username" class="form-control" placeholder="Username">
+                    {{-- <label for=""><strong>Nama Pengguna</strong></label> --}}
+                    <input type="text" name="username" class="form-control" placeholder="Nama Pengguna" value="{{ old('username') }}" autofocus>
                 </div>
                 <div class="form-group">
-                    <label for=""><strong>Password</strong></label>
+                    {{-- <label for=""><strong>Password</strong></label> --}}
                     <input type="password" name="password" class="form-control" placeholder="Password">
                 </div>
-            </div>
-            <div class="card-footer">
-                <button type="submit" class="btn bg-purple btn-block text-white">Log In</button>
-                {{-- <p class="text-center">Belum punya akun? <a href="{{ route('register') }}">Register</a> sekarang!</p> --}}
+                <div class="text-right">
+                  <button type="submit" class="btn bg-purple text-white">Masuk</button>
+                </div>
             </div>
             </form>
-        </div>
     </div>
 </div>
 <div class="fixed-bottom d-block w-100 text-center mb-5">

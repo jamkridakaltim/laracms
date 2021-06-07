@@ -1,6 +1,17 @@
+<div class="container" style="height: 100px">
+  <div class="pt-4 d-flex justify-content-between">
+    <div class="d-flex">
+      <img src="{{ url('/images/logo-kota-samarinda.png')}}" height="64" alt="">
+      <div class="ml-2">
+        <span class="font-weight-bold">PEMERINTAH KOTA SAMARINDA </span><br>
+        <h1 class="h4 font-weight-bold">DINAS PERDAGANGAN</h1>
+      </div>
+    </div>
+  </div>
+</div>
 <nav class="navbar navbar-expand-md navbar-light bg-purple">
   <div class="container">
-    <a class="navbar-brand text-white" href="#">CMS</a>
+    {{-- <a class="navbar-brand text-white" href="#">CMS</a> --}}
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
