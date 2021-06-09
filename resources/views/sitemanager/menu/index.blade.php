@@ -11,7 +11,7 @@
       <thead class="bg-purple">
         <th class="text-white text-center" width="50">#</th>
         <th class="text-white">Nama</th>
-        <th class="text-white">Status</th>
+        <th class="text-white" width="80">Status</th>
         <th class="text-white text-center" width="80"><i class="bi-file-text"></i></th>
       </thead>
       <tbody>

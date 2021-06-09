@@ -4,7 +4,7 @@
       <img src="{{ url('/images/logo-kota-samarinda.png')}}" height="64" alt="">
       <div class="ml-2">
         <span class="font-weight-bold">PEMERINTAH KOTA SAMARINDA </span><br>
-        <h1 class="h4 font-weight-bold">DINAS PERDAGANGAN</h1>
+        <h1 class="h4 font-weight-bold">DINAS KOPERASI & UKM</h1>
       </div>
     </div>
   </div>

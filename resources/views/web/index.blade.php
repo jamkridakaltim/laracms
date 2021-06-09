@@ -13,7 +13,7 @@
     @foreach ($news as $index => $item)
     <div class="carousel-item {{ $index == 0 ? 'active' : ''}}">
       <div class="media p-3">
-        <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="200" class="mr-3" alt="...">
+        <img src="{{ asset('images/img-post.png') }}" height="200" class="mr-3" alt="...">
         <div class="media-body">
           <a href="{{ url("/post/".$item->slug) }}" class="text-success font-weight-bold"><h5 class="h3 mt-0">{{ $item->title }}</h5></a>
           <div>
@@ -48,7 +48,7 @@
     <div class="p-2">
         @foreach ($news as $index => $item)
         <div class="media py-2">
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
+          <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-success font-weight-bold">{{ $item->title }}</a>
             {!! tagline($item->content, 200) !!}
@@ -71,7 +71,7 @@
         <div class="p-2">
           @foreach ($news as $index => $item)
           <div class="media py-2">
-            <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
+            <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
             <div class="media-body">
               <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
               <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
@@ -90,7 +90,7 @@
         <div class="p-2">
           @foreach ($article as $index => $item)
           <div class="media py-2">
-            <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
+            <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
             <div class="media-body">
               <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
               <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
@@ -114,7 +114,7 @@
         <div class="p-2">
           @foreach ($announcement as $index => $item)
           <div class="media py-2">
-            <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
+            <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
             <div class="media-body">
               <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
               <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
@@ -133,7 +133,7 @@
         <div class="p-2">
           @foreach ($national as $index => $item)
           <div class="media py-2">
-            <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" height="64" class="mr-3" alt="...">
+            <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
             <div class="media-body">
               <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
               <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>

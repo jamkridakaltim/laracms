@@ -13,7 +13,7 @@
                 <div class="mb-4">
                   {{-- <span class="font-weight-bold">Siteman </span><br> --}}
                   <span class="font-weight-bold">PEMERINTAH KOTA SAMARINDA </span><br>
-                  <h1 class="h4 font-weight-bold">DINAS PERDAGANGAN</h1>
+                  <h1 class="h4 font-weight-bold">DINAS KOPERASI & UKM</h1>
                 </div>
 
                 {{-- @if(session('errors'))
