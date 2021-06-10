@@ -32,7 +32,7 @@
             <tr>
               <td class="text-center">{{ ($index + 1 ) .".". ($subIndex + 1) }}</td>
               <td>{{ $subItem->name }}</td>
-              <td class="text-center text-{{ $item->status == 1 ? 'success' : 'danger' }}">{{ $item->status == 1 ? 'On' : 'Off' }}</td>
+              <td class="text-center text-{{ $subItem->status == 1 ? 'success' : 'danger' }}">{{ $subItem->status == 1 ? 'On' : 'Off' }}</td>
               <td class="text-center">
                 <a href="{{ route('sitemanager.menu.edit', [$subItem->id, 'id' => $item->id]) }}" class="icon"><i class="bi-file-text"></i></a>
               </td>

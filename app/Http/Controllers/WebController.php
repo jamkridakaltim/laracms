@@ -29,6 +29,7 @@ class WebController extends Controller
     {
         $polling = Polling::where('type', 'question')->first();
         $polling['answer'] = Polling::where('parent', data_get($polling,'id'))->get();
+
         return $polling;
     }
 
@@ -42,6 +43,8 @@ class WebController extends Controller
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
         $national = $this->article('nasional');
+
+        // dd($polling != null ? 'true' : 'false');
 
 
         return view('web.index', compact('news', 'populer', 'agenda', 'polling', 'article', 'announcement', 'national'));

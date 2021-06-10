@@ -11,7 +11,7 @@
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> --}}
     @yield('top-script')
 </head>
-<body class="@yield('bodyClass')">
+<body class="@yield('bodyClass', 'bg-light')">
     @yield('base-content')
     @yield('bottom-script')
 </body>

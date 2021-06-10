@@ -1,10 +1,12 @@
-<div class="container" style="height: 100px">
-  <div class="pt-4 d-flex justify-content-between">
-    <div class="d-flex">
-      <img src="{{ url('/images/logo-kota-samarinda.png')}}" height="64" alt="">
-      <div class="ml-2">
-        <span class="font-weight-bold">PEMERINTAH KOTA SAMARINDA </span><br>
-        <h1 class="h4 font-weight-bold">DINAS KOPERASI & UKM</h1>
+<div class="bg-white">
+  <div class="container" style="height: 120px">
+    <div class="pt-4 d-flex justify-content-between">
+      <div class="d-flex">
+        <img src="{{ url('/images/logo-kota-samarinda.png')}}" height="64" alt="">
+        <div class="ml-2">
+          <span class="font-weight-bold">PEMERINTAH KOTA SAMARINDA </span><br>
+          <h1 class="h4 font-weight-bold">DINAS KOPERASI & UKM</h1>
+        </div>
       </div>
     </div>
   </div>
@@ -24,19 +26,19 @@
             <a class="nav-link text-white" href="{{ url('sitemanager/menu') }}"><i class="bi-menu-button"></i> Menu</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="{{ url('sitemanager/page') }}"><i class="bi-file-text"></i> Page</a>
+            <a class="nav-link text-white" href="{{ url('sitemanager/page') }}"><i class="bi-file-text"></i> Halaman</a>
         </li>
         @if(data_get(Auth::user(), 'level') == 'super')
         <li class="nav-item dropdown">
-          <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-file-richtext"></i> Post</a>
+          <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-file-richtext"></i> Postingan</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="{{ url('sitemanager/post')}}">Posts</a>
-            <a class="dropdown-item" href="{{ url('sitemanager/post-category')}}">Categories</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/post')}}">Postingan</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/post-category')}}">Kategori</a>
           </div>
         </li>
         @else
         <li class="nav-item">
-            <a class="nav-link text-white" href="{{ url('sitemanager/post') }}"><i class="bi-file-richtext"></i> Post</a>
+            <a class="nav-link text-white" href="{{ url('sitemanager/post') }}"><i class="bi-file-richtext"></i> Postingan</a>
         </li>
         @endif
         <li class="nav-item">

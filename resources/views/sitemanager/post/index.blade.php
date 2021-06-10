@@ -1,9 +1,9 @@
 @extends('sitemanager._layouts.app')
 @section('content')
   <div class="d-flex justify-content-between pb-2">
-    <h5 class="h4">Post</h5>
+    <h5 class="h4">Postingan</h5>
     <div class="text-right">
-      <a href="{{ route('sitemanager.post.create') }}" class="btn btn-sm bg-purple text-white"><i class="bi bi-plus-circle"></i> Create</a>
+      <a href="{{ route('sitemanager.post.create') }}" class="btn btn-sm bg-purple text-white"><i class="bi bi-plus-circle"></i> Buat</a>
     </div>
   </div>
   <div class="bg-white">

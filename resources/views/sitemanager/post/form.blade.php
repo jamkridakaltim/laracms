@@ -3,13 +3,13 @@
 <div class="row justify-content-center pb-2">
   <div class="col-lg-12">
     <h1 class="h4">
-      {{ old('id') ? 'Edit' : 'Create' }} Post
+      {{ old('id') ? 'Edit' : 'Buat' }} Postingan
     </h1>
   </div>
 </div>
 <div class="row justify-content-center">
   <div class="col-lg-12">
-    <form action="{{ $action }}" method="POST" class="bg-white p-4">
+    <form action="{{ $action }}" method="POST" class="bg-white shadow rounded p-4">
       @csrf
       @method($method)
       <div class="form-group">
@@ -28,6 +28,7 @@
         <label class="form-label">Content</label>
         <textarea id="content" name="content" class="description form-control">{{ old('content') }}</textarea>
       </div>
+
       <div class="custom-control custom-switch">
         <input type="checkbox" name="status" class="custom-control-input" id="customSwitch1" {{ old('status') == 1 ? 'checked' : '' }}>
         <label class="custom-control-label" for="customSwitch1">Aktif</label>

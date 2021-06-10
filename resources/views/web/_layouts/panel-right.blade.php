@@ -124,7 +124,7 @@
     </div>
   </marquee>
 </div> --}}
-
+{{-- @if($pollingcount > 0) --}}
 <div class="card border-white mb-3">
   <div class="px-4 py-3 bg-success text-white">
     <span class="h5"><i class="bi bi-bar-chart-steps mr-2"></i> POLLING</span>
@@ -135,16 +135,17 @@
     @method('POST')
     <div class="py-2">
       <ul class="list-group pb-2">
-        <li class="list-group-item bg-secondary text-white" aria-current="true">{{ $polling->content }}</li>
+        <li class="list-group-item bg-secondary text-white" aria-current="true">{{ data_get($polling,'content') }}</li>
         @foreach ($polling['answer'] as $index => $item)
           <li class="list-group-item"><input type="radio" name="vote" id="" value="{{ $item->id }}" required> {{ $item->content }}</li>
         @endforeach
       </ul>
       <button type="submit" class="btn btn-sm btn-block btn-outline-warning">Kirim</button>
-      <a href="{{ url('/polling/'. $polling->id )}}" class="btn btn-sm btn-block btn-warning">Lihat Polling</a>
+      <a href="{{ url('/polling/'. data_get($polling,'id') )}}" class="btn btn-sm btn-block btn-warning">Lihat Polling</a>
     </div>
   </form>
 </div>
+{{-- @endif --}}
 
 <div class="card border-white mb-3">
   <div class="px-4 py-3 bg-success text-white">

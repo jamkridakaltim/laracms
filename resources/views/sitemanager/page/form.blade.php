@@ -3,7 +3,7 @@
 <div class="row justify-content-center pb-2">
   <div class="col-lg-12">
     <h1 class="h4">
-      {{ old('id') ? 'Edit' : 'Create' }} Page
+      {{ old('id') ? 'Edit' : 'Buat' }} Halaman
     </h1>
   </div>
 </div>

@@ -1,4 +1,4 @@
-@extends('sitemanager._layouts.default', ['bodyClass' => 'bg-light'])
+@extends('sitemanager._layouts.default')
 @section('top-script')
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <style>

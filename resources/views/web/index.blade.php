@@ -1,4 +1,6 @@
 @extends('web._layouts.app')
+
+@if($news->count() > 0)
 @section('top-content')
 <div id="carouselExampleIndicators" class="carousel slide bg-light d-none d-sm-block" data-ride="carousel">
 
@@ -37,6 +39,7 @@
 </div>
 <div class="p-1 bg-warning"></div>
 @endsection
+@endif
 
 @section('content')
   <div class="card border-white">
