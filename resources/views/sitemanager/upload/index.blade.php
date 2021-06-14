@@ -12,16 +12,16 @@
         <th class="text-white text-center" width="50">#</th>
         <th class="text-white">Menu</th>
         <th class="text-white">Title</th>
-        <th class="text-white text-center" width="80">Status</th>
+        <th class="text-white text-center" width="80">Type</th>
         <th class="text-white text-center" width="80"><i class="bi-file-text"></i></th>
       </thead>
       <tbody>
         @forelse ($upload as $index => $item )
         <tr>
           <td class="text-center">{{ $index + 1 }}</td>
-          <td>{{ $item->menu->name }}</td>
-          <td>{{ $item->title }}</td>
-          <td class="text-center text-{{ $item->status == 1 ? 'success' : 'danger' }}">{{ $item->status == 1 ? 'On' : 'Off' }}</td>
+          <td>{{ $item->name }}</td>
+          <td>{{ $item->path }}</td>
+          <td class="text-center">{{ ucfirst($item->type) }}</td>
           <td class="text-center">
             <a href="{{ route('sitemanager.file.edit', $item->id) }}" class="icon"><i class="bi-file-text"></i></a>
           </td>

@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Manager;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\File as Upload;
+use Illuminate\Support\Str;
 
 class UploadController extends Controller
 {
     public function index()
     {
-        $upload = Upload::paginate();
+        $upload = Upload::whereNull('fileable_type')->paginate();
         return view('sitemanager.upload.index', compact('upload'));
     }
 
@@ -41,7 +42,13 @@ class UploadController extends Controller
             $method = "POST";
         }
 
-        return view('sitemanager.upload.form', compact('action', 'method'));
+        $type = [
+            'foto',
+            'banner',
+            'footer',
+        ];
+
+        return view('sitemanager.upload.form', compact('action', 'method', 'type'));
     }
 
     public function store()
@@ -58,7 +65,7 @@ class UploadController extends Controller
     {
         if($id){
             $upload = Upload::find($id);
-            if($upload){
+            if(request()->has('file')){
                 unlink(data_get($upload, 'path'));
             }
         }else{
@@ -66,6 +73,7 @@ class UploadController extends Controller
         }
 
         if(request()->has('file')){
+
             $file = request()->file('file');
             $original_name = $file->getClientOriginalName();
             $extension = $file->extension();
@@ -79,19 +87,18 @@ class UploadController extends Controller
             $directory = 'storage/post/';
             $path = $directory.$file_name;
             $file->move($directory,$file_name);
-
-
             $upload->name  = $file_name;
-            $upload->type  = request()->input('type')?:'foto';
-            $upload->field = 'post';
             $upload->path  = $path;
         }
 
+        // $upload->field = 'post';
+
+        $upload->type  = request()->input('type')?:'foto';
         $upload->save();
 
         $message = sprintf("Data Telah di %s", $id ? 'simpan' : 'tambahkan');
 
-        return redirect()->route('sitemanager.upload.index')->withMessage($message);
+        return redirect()->route('sitemanager.file.index')->withMessage($message);
     }
 
     public function destroy($id)
@@ -100,7 +107,10 @@ class UploadController extends Controller
         if($upload){
             unlink($upload->path);
             $upload->delete();
-            return redirect()->back()->withMessage('Data Telah Dihapus');
+            if(request()->get('post')){
+                return redirect()->back()->withMessage('Data Telah Dihapus');
+            }
+            return redirect()->route('sitemanager.file.index')->withMessage('Data Telah Dihapus');
         }
 
         return redirect()->back()->withError('Data Tidak Ditemukan');

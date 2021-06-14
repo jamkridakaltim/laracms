@@ -11,8 +11,8 @@ class File extends Model
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function scopePostImage($query, $id)
+    public function scopePostImage($query, $type)
     {
-        return $query->where('fileable_type', 'post')->where('fileable_id', $id)->first();
+        return $query->where([['fileable_type', 'post'],['fileable_id', $type]]);
     }
 }

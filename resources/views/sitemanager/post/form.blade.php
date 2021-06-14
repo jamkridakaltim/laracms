@@ -34,15 +34,15 @@
           <label class="custom-file-label" for="customFile">Pilih Gambar</label>
           <small class="text-muted">Ukuran Gambar Max. 1.000 KB</small>
         </div>
-        {{-- <div class="d-flex py-2"> --}}
+        <div class="d-flex py-2">
         @if($image)
-          <img src="{{ url(data_get($image,'path'))}}" class="rounded" height="200">
-          <a href="{{ route('sitemanager.file.destroy', data_get($image,'id')) }}" data-method="delete" class="text-danger"><i class="bi-trash ml-2"></i>Hapus Gambar Ini</a>
+          <img src="{{ url(data_get($image,'path'))}}" class="rounded img-thumbnail w-25" >
+          <a href="{{ route('sitemanager.file.destroy', [data_get($image,'id'), 'post' => 'true']) }}" data-method="delete" class="text-danger"><i class="bi-trash ml-2"></i>Hapus Gambar Ini</a>
           @else
-          <img src="{{ asset('images/img-post.png') }}" height="200" class="mr-3" alt="..."> <br>
+          <img src="{{ asset('images/img-post.png') }}"  class="rounded img-thumbnail w-25 mr-3" alt="..."> <br>
           <small class="text-muted">Upload Gambar Untuk mengganti foto ini</small>
         @endif
-        {{-- </div> --}}
+        </div>
       </div>
       <div class="custom-control custom-switch">
         <input type="checkbox" name="status" class="custom-control-input" id="customSwitch1" {{ old('status') == 1 ? 'checked' : '' }}>
@@ -74,11 +74,5 @@
         toolbar1: 'formatselect fontsizeselect | bold italic strikethrough forecolor backcolor | link image | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
         image_advtab: true,
       });
-  </script>
-  <script type="application/javascript">
-    $('input[type="file"]').change(function(e){
-        var fileName = e.target.files[0].name;
-        $('.custom-file-label').html(fileName);
-    });
   </script>
 @endsection

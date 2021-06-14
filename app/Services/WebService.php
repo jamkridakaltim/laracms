@@ -3,8 +3,9 @@
 namespace App\Services;
 
 use App\Models\Menu;
+use App\Models\File;
 
-class MenuService
+class WebService
 {
     public function menus()
     {
@@ -15,5 +16,10 @@ class MenuService
         });
 
         return $menu;
+    }
+
+    public function banners(Type $var = null)
+    {
+        return File::where('type', 'banner')->get();
     }
 }

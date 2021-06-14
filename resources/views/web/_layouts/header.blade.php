@@ -1,4 +1,4 @@
-@inject('menu', 'App\Services\MenuService')
+@inject('web', 'App\Services\WebService')
 <div class="p-1 bg-warning"></div>
 <div class="container">
   <div class="d-flex row bg-dark">
@@ -24,15 +24,17 @@
 
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://indagkop.kaltimprov.go.id/asset/logo/baliho_hari_konsumen_nasional.jpg" class="d-block w-100" alt="...">
+    @foreach ($web->banners() as $key => $item)
+    <div class="carousel-item {{ $key == 0 ? 'active' : ''}}">
+      <img src="{{ url($item->path) }}" class="d-block w-100">
+    </div>
+    @endforeach
+    {{-- <div class="carousel-item">
+      <img src="https://indagkop.kaltimprov.go.id/asset/logo/kpk.jpg" class="d-block w-100">
     </div>
     <div class="carousel-item">
-      <img src="https://indagkop.kaltimprov.go.id/asset/logo/kpk.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://indagkop.kaltimprov.go.id/asset/logo/banner.jpg" class="d-block w-100" alt="...">
-    </div>
+      <img src="https://indagkop.kaltimprov.go.id/asset/logo/banner.jpg" class="d-block w-100">
+    </div> --}}
   </div>
 </div>
 
@@ -47,7 +49,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      @foreach ($menu->menus() as $index => $item)
+      @foreach ($web->menus() as $index => $item)
       <li class="nav-item {{ active_link([$item->link]) }}">
         <a href="{{ check_url($item->link) ? $item->link : url("/".$item->link) }}" target="{{ check_url($item->link) ? "_blank" : "" }}" class="nav-link text-white {{$item->submenu->count() > 0 ? 'dropdown-toggle': ''}}" {{$item->submenu->count() > 0 ? 'data-toggle=dropdown': ''}}>{{ strtoupper($item->name) }}</a>
         @if($item->submenu->count() > 0)

@@ -9,20 +9,28 @@
 </div>
 <div class="row justify-content-center">
   <div class="col-lg-12">
-    <form action="{{ $action }}" method="POST" class="bg-white p-4">
+    <form action="{{ $action }}" method="POST" class="bg-white p-4" enctype="multipart/form-data">
       @csrf
       @method($method)
-      {{-- <div class="form-group">
-        <label for="" class="form-label">Title</label>
-        <input type="text" name="title" class="form-control" value="{{ old('title')}}">
-      </div> --}}
       <div class="form-group">
-        <label class="form-label">Content</label>
-        <textarea id="content" name="content" class="description form-control">{{ old('content') }}</textarea>
+        <label for="" class="form-label">Type</label>
+        <select name="type" class="form-control">
+          @foreach ($type as $key)
+            <option value="{{ $key }}" {{ selected(old('type'),$key) }}>{{ ucfirst($key) }}</option>
+          @endforeach
+        </select>
       </div>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" name="status" class="custom-control-input" id="customSwitch1" {{ old('status') == 1 ? 'checked' : '' }}>
-        <label class="custom-control-label" for="customSwitch1">Aktif</label>
+      <div class="mb-4">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" name="file" id="file">
+          <label class="custom-file-label" for="customFile">Pilih Gambar</label>
+          <small class="text-muted">Ukuran Gambar Max. 1.000 KB</small>
+        </div>
+        @if(old('path'))
+        <div class="d-flex py-2">
+          <img src="{{ url(old('path'))}}" class="rounded img-thumbnail w-25">
+        </div>
+        @endif
       </div>
       <div class="d-flex justify-content-between pt-2">
         <div>
