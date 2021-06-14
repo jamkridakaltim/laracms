@@ -20,7 +20,7 @@
         <tr>
           <td class="text-center">{{ $index + 1 }}</td>
           <td>{{ $item->name }}</td>
-          <td>{{ $item->path }}</td>
+          <td><a href="{{ url($item->path) }}">{{ $item->path }}</a></td>
           <td class="text-center">{{ ucfirst($item->type) }}</td>
           <td class="text-center">
             <a href="{{ route('sitemanager.file.edit', $item->id) }}" class="icon"><i class="bi-file-text"></i></a>

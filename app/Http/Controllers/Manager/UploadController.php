@@ -84,7 +84,7 @@ class UploadController extends Controller
             }
 
             $file_name = Str::slug($original_name).'.'.$extension;
-            $directory = 'storage/post/';
+            $directory = 'storage/'.(request()->input('type')?:'foto').'/';
             $path = $directory.$file_name;
             $file->move($directory,$file_name);
             $upload->name  = $file_name;
