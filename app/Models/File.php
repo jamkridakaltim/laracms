@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class File extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    public function scopePostImage($query, $id)
+    {
+        return $query->where('fileable_type', 'post')->where('fileable_id', $id)->first();
+    }
 }

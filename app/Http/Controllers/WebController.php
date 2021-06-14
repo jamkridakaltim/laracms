@@ -7,6 +7,7 @@ use App\Models\Menu;
 use App\Models\Post\Post;
 use App\Models\Post\Post as Page;
 use App\Models\User;
+use App\Models\File;
 use App\Models\Polling;
 
 class WebController extends Controller
@@ -43,11 +44,12 @@ class WebController extends Controller
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
         $national = $this->article('nasional');
+        $image = new File;
 
         // dd($polling != null ? 'true' : 'false');
 
 
-        return view('web.index', compact('news', 'populer', 'agenda', 'polling', 'article', 'announcement', 'national'));
+        return view('web.index', compact('news', 'populer', 'agenda', 'polling', 'article', 'announcement', 'national', 'image'));
     }
 
     public function post($post)
@@ -59,6 +61,7 @@ class WebController extends Controller
         $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
+        $image = new File;
 
         $post = Post::where('slug', $post)->first();
         $user = User::find(data_get($post,'user_id'));
@@ -69,7 +72,7 @@ class WebController extends Controller
             return redirect()->route('beranda')->withError('Berita Tidak Lengkap, Hubungi Admin');
         }
 
-        return view('web.post', compact('post', 'user', 'news', 'populer', 'agenda', 'polling'));
+        return view('web.post', compact('post', 'user', 'news', 'populer', 'agenda', 'polling', 'image'));
     }
 
     public function page($page)
@@ -81,6 +84,7 @@ class WebController extends Controller
         $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
+        $image = new File;
 
         $menu = Menu::where('slug', $page)->first();
         $page = Page::where('type', 'page')->where('type_id', $menu->id)->first();
@@ -90,7 +94,7 @@ class WebController extends Controller
             return redirect()->route('beranda')->withError('Halaman Belum Tersedia, Hubungi Admin');
         }
 
-        return view('web.page', compact('page', 'user', 'news', 'populer', 'agenda', 'polling'));
+        return view('web.page', compact('page', 'user', 'news', 'populer', 'agenda', 'polling', 'image'));
     }
 
     public function page_polling($id)
@@ -102,12 +106,13 @@ class WebController extends Controller
         $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
+        $image = new File;
 
         $result = Polling::find($id);
         $result['answer'] = Polling::where('parent', $id)->get();
         $result['total'] = Polling::where('parent', $id)->get()->sum('score');
 
-        return view('web.page-polling', compact('result', 'news', 'populer', 'agenda', 'polling'));
+        return view('web.page-polling', compact('result', 'news', 'populer', 'agenda', 'polling', 'image'));
     }
 
     public function vote_polling()

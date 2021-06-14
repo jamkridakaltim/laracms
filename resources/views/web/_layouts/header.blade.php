@@ -1,4 +1,5 @@
 @inject('menu', 'App\Services\MenuService')
+<div class="p-1 bg-warning"></div>
 <div class="container">
   <div class="d-flex row bg-dark">
     <div class="p-2 bg-success text-white rounded-right">Breaking News !</div>

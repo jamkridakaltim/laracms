@@ -41,6 +41,13 @@
             <a class="nav-link text-white" href="{{ url('sitemanager/post') }}"><i class="bi-file-richtext"></i> Postingan</a>
         </li>
         @endif
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-card-image"></i> Galeri</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="{{ url('sitemanager/galeri/foto')}}"> Foto</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/galeri/video')}}"> Video</a>
+          </div>
+        </li>
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/polling') }}"><i class="bi-list-stars"></i> Polling</a>
         </li>

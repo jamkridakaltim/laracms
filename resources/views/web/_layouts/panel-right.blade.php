@@ -33,7 +33,7 @@
       <div class="tab-pane active" id="terpopuler" role="tabpanel" aria-labelledby="terpopuler-tab">
         @foreach ($populer as $index => $item)
         <div class="media py-2">
-          <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+          <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
             <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
@@ -44,7 +44,7 @@
       <div class="tab-pane" id="terkini" role="tabpanel" aria-labelledby="terkini-tab">
         @foreach ($news as $index => $item)
         <div class="media py-2">
-          <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+          <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
             <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
@@ -55,7 +55,7 @@
       <div class="tab-pane" id="agenda" role="tabpanel" aria-labelledby="agenda-tab">
         @foreach ($agenda as $index => $item)
         <div class="media py-2">
-          <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+          <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
             <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
@@ -75,49 +75,49 @@
   <div class="p-1 bg-warning"></div>
   <marquee scrollamount="2" direction="up" height="300">
     <div class="media py-2">
-      <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
       <div class="media-body">
         <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
       </div>
     </div>
     <div class="media py-2">
-      <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
       <div class="media-body">
         <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
       </div>
     </div>
     <div class="media py-2">
-      <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
       <div class="media-body">
         <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
       </div>
     </div>
     <div class="media py-2">
-      <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
       <div class="media-body">
         <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
       </div>
     </div>
     <div class="media py-2">
-      <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
       <div class="media-body">
         <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
       </div>
     </div>
     <div class="media py-2">
-      <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
       <div class="media-body">
         <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
       </div>
     </div>
     <div class="media py-2">
-      <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
       <div class="media-body">
         <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
       </div>
     </div>
     <div class="media py-2">
-      <img src="{{ asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
       <div class="media-body">
         <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
       </div>

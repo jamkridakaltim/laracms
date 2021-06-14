@@ -6,3 +6,4 @@
     </div>
   </div>
 </footer>
+<div class="p-1 bg-warning"></div>

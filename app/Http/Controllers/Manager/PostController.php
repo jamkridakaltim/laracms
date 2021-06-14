@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 use App\Models\User;
+use App\Models\File;
 use App\Models\Post\Post;
 use App\Models\Post\Category;
 
@@ -47,8 +48,9 @@ class PostController extends Controller
         }
 
         $categories = Category::get();
+        $image = File::where([['fileable_type','post'],['fileable_id', $id]])->first();
 
-        return view('sitemanager.post.form', compact('action', 'method', 'categories'));
+        return view('sitemanager.post.form', compact('action', 'method', 'categories', 'image'));
     }
 
     public function store()
@@ -81,6 +83,33 @@ class PostController extends Controller
         $post->user_id = \Auth::user()->id;
 
         $post->save();
+
+        if(request()->has('file')){
+            $file = request()->file('file');
+            $original_name = $file->getClientOriginalName();
+            $extension = $file->extension();
+
+            if(empty($extension)){
+                $extension = explode('.', $original_name);
+                $extension = end($extension);
+            }
+
+            $file_name = Str::slug($original_name).'.'.$extension;
+            $directory = 'storage/post/';
+            $path = $directory.$file_name;
+            $file->move($directory,$file_name);
+
+            $input = [
+                'name' => $file_name,
+                'type' => 'image',
+                'fileable_type' => 'post',
+                'fileable_id' => $post->id,
+                'field'=> 'post',
+                'path' => $path
+            ];
+
+            $upload = File::create($input);
+        }
 
         $message = sprintf("Data Telah di %s ", $id ? 'simpan' : 'tambahkan');
 

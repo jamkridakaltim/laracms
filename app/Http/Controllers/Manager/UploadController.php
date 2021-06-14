@@ -92,11 +92,12 @@ class UploadController extends Controller
     {
         $upload = Upload::find($id);
         if($upload){
+            unlink($upload->path);
             $upload->delete();
-            return redirect()->route('sitemanager.upload.index')->withMessage('Data Telah Dihapus');
+            return redirect()->back()->withMessage('Data Telah Dihapus');
         }
 
-        return redirect()->route('sitemanager.upload.index')->withError('Data Tidak Ditemukan');
+        return redirect()->back()->withError('Data Tidak Ditemukan');
 
     }
 }

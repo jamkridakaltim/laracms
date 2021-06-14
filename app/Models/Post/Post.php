@@ -25,4 +25,6 @@ class Post extends Model
     {
         return $this->belongsTo(\App\Models\Menu::class, 'type_id', 'id');
     }
+
+
 }

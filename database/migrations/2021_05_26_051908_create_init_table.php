@@ -49,7 +49,7 @@ class CreateInitTable extends Migration
             $table->string('fileable_type')->nullable();
             $table->integer('fileable_id')->nullable();
             $table->string('field')->nullable();
-            $table->text('meta');
+            $table->text('meta')->nullable();
 
             $table->timestamps();
         });
