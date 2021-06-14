@@ -41,11 +41,6 @@ class UploadController extends Controller
             $method = "POST";
         }
 
-        // $menu = Menu::whereNull('parent_id')->active()->get();
-        // $menu->each(function($item){
-        //     $item->subitem = Menu::where('parent_id', $item->id)->active()->get();
-        // });
-
         return view('sitemanager.upload.form', compact('action', 'method'));
     }
 
@@ -63,23 +58,34 @@ class UploadController extends Controller
     {
         if($id){
             $upload = Upload::find($id);
+            if($upload){
+                unlink(data_get($upload, 'path'));
+            }
         }else{
             $upload = new Upload;
         }
 
-        // $upload->category_id = request()->input('category_id');
-        $menu = Menu::find(request()->input('menu_id'));
+        if(request()->has('file')){
+            $file = request()->file('file');
+            $original_name = $file->getClientOriginalName();
+            $extension = $file->extension();
 
-        $upload->title = $menu->name;
+            if(empty($extension)){
+                $extension = explode('.', $original_name);
+                $extension = end($extension);
+            }
 
-        $upload->slug = Str::slug(request()->input('title'));
-        $upload->tags = request()->input('tags');
-        $upload->content = request()->input('content');
-        $upload->type = "upload";
-        $upload->type_id = request()->input('menu_id');
-        $upload->status = request()->input('status') == 'on' ? 1 : 0;
-        $upload->published_at = request()->input('published_at')?:today();
-        $upload->user_id = \Auth::user()->id;
+            $file_name = Str::slug($original_name).'.'.$extension;
+            $directory = 'storage/post/';
+            $path = $directory.$file_name;
+            $file->move($directory,$file_name);
+
+
+            $upload->name  = $file_name;
+            $upload->type  = request()->input('type')?:'foto';
+            $upload->field = 'post';
+            $upload->path  = $path;
+        }
 
         $upload->save();
 
