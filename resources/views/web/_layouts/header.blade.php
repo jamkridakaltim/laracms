@@ -29,12 +29,6 @@
       <img src="{{ url($item->path) }}" class="d-block w-100">
     </div>
     @endforeach
-    {{-- <div class="carousel-item">
-      <img src="https://indagkop.kaltimprov.go.id/asset/logo/kpk.jpg" class="d-block w-100">
-    </div>
-    <div class="carousel-item">
-      <img src="https://indagkop.kaltimprov.go.id/asset/logo/banner.jpg" class="d-block w-100">
-    </div> --}}
   </div>
 </div>
 
