@@ -46,5 +46,10 @@ class DatabaseSeeder extends Seeder
         ];
 
         \App\Models\Post\Category::insert($categories);
+
+        \App\Model\Setting::create([
+            'key' => 'title_page',
+            'value' => 'Website Ku'
+        ]);
     }
 }

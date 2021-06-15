@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Menu;
 use App\Models\File;
+use App\Models\Setting;
 
 class WebService
 {
@@ -21,5 +22,10 @@ class WebService
     public function banners(Type $var = null)
     {
         return File::where('type', 'banner')->get();
+    }
+
+    public function titlePage()
+    {
+        return Setting::where('key', 'title_page')->first()->value('value');
     }
 }

@@ -54,9 +54,9 @@
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/file') }}"><i class="bi-archive"></i> File</a>
         </li>
-        {{-- <li class="nav-item">
-            <a class="nav-link text-white" href="{{ url('sitemanager/agenda') }}"><i class="bi-calendar3"></i> Agenda</a>
-        </li> --}}
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{{ url('sitemanager/setting') }}"><i class="bi-sliders"></i> Pengaturan</a>
+        </li>
         {{--
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-sliders"></i> Setting</a>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Manager\PageController;
 use App\Http\Controllers\Manager\PollingController;
 use App\Http\Controllers\Manager\UploadController as FileController;
 use App\Http\Controllers\Manager\PostController;
+use App\Http\Controllers\Manager\SettingController;
 use App\Http\Controllers\Manager\PostCategoryController;
 
 /*
@@ -54,6 +55,7 @@ Route::prefix('sitemanager')->group(function() {
         Route::resource('post-category' ,PostCategoryController::class);
         Route::resource('polling' ,PollingController::class);
         Route::resource('file' ,FileController::class);
+        Route::resource('setting' ,SettingController::class);
 
         Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
