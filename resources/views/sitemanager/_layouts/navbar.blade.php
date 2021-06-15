@@ -48,15 +48,24 @@
             <a class="dropdown-item" href="{{ url('sitemanager/galeri/video')}}"> Video</a>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-nut"></i> Opsional</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="{{ url('sitemanager/polling')}}"> Polling</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/file')}}"> File</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/banner')}}"> Banner</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/setting')}}"> Pengaturan</a>
+          </div>
+        </li>
+        {{-- <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/polling') }}"><i class="bi-list-stars"></i> Polling</a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/file') }}"><i class="bi-archive"></i> File</a>
-        </li>
-        <li class="nav-item">
+        </li> --}}
+        {{-- <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/setting') }}"><i class="bi-sliders"></i> Pengaturan</a>
-        </li>
+        </li> --}}
         {{--
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-sliders"></i> Setting</a>

@@ -1,3 +1,4 @@
+@inject('web', 'App\Services\WebService')
 @extends('sitemanager._layouts.app')
 @section('bodyClass', 'bg-img')
 @section('base-content')
@@ -29,6 +30,6 @@
     </div>
 </div>
 <div class="fixed-bottom d-block w-100 text-center mb-5">
-  © {{ tahun() }} All rights reserved. &nbsp; Tim Pengembang Website {{ config('app.name') }}.
+  © {{ tahun() }} All rights reserved. &nbsp; Tim Pengembang Website {{ $web->titlePage() }}.
 </div>
 @endsection
