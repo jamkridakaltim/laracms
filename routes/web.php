@@ -11,6 +11,8 @@ use App\Http\Controllers\Manager\UploadController as FileController;
 use App\Http\Controllers\Manager\PostController;
 use App\Http\Controllers\Manager\SettingController;
 use App\Http\Controllers\Manager\PostCategoryController;
+use App\Http\Controllers\Manager\Gallery\FotoController;
+use App\Http\Controllers\Manager\Gallery\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,14 @@ Route::get('beranda', function(){
 
 Route::get('/post/{post}', [ WebController::class, 'post' ]);
 Route::get('/page/{page}', [ WebController::class, 'page' ]);
+
+Route::get('/galeri/foto', [WebController::class, 'foto_page']);
+Route::get('/galeri/foto/{foto}', [WebController::class, 'foto_show']);
+Route::get('/galeri/video', [WebController::class, 'video_page']);
+Route::get('/galeri/video/{video}', [WebController::class, 'video_show']);
+Route::get('/contact-us', [WebController::class, 'contact_page']);
+Route::post('/contact-us', [WebController::class, 'contact_show']);
+
 Route::get('/polling/{polling}', [ WebController::class, 'page_polling' ])->name('polling');
 Route::post('/polling', [ WebController::class, 'vote_polling' ])->name('vote-polling');
 
@@ -56,6 +66,8 @@ Route::prefix('sitemanager')->group(function() {
         Route::resource('polling' ,PollingController::class);
         Route::resource('file' ,FileController::class);
         Route::resource('setting' ,SettingController::class);
+        Route::resource('gallery/foto' ,FotoController::class);
+        Route::resource('gallery/video' ,VideoController::class);
 
         Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 

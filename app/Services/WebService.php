@@ -26,6 +26,7 @@ class WebService
 
     public function titlePage()
     {
-        return Setting::where('key', 'title_page')->first()->value('value');
+        $setting = Setting::where('key', 'title_page');
+        return $setting->value('value') ?: 'My Website';
     }
 }

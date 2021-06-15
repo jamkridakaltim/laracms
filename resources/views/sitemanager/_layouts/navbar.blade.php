@@ -44,8 +44,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-card-image"></i> Galeri</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item text-danger" href="{{ url('sitemanager/galeri/foto')}}"> Foto</a>
-            <a class="dropdown-item text-danger" href="{{ url('sitemanager/galeri/video')}}"> Video</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/gallery/foto')}}"> Foto</a>
+            <a class="dropdown-item text-danger" href="{{ url('sitemanager/gallery/video')}}"> Video</a>
           </div>
         </li>
         <li class="nav-item dropdown">

@@ -12,28 +12,6 @@ use App\Models\Polling;
 
 class WebController extends Controller
 {
-    public function populer()
-    {
-        return Post::whereHas('category', function($query){
-            $query->where('name', '=', 'berita');
-        })->where('type', 'post')->active()->orderBy('read', 'DESC')->take(5)->get();
-    }
-
-    public function article($category)
-    {
-        return Post::whereHas('category', function($query) use ($category) {
-            $query->where('name', '=', $category);
-        })->where('type', 'post')->active()->orderBy('created_at', 'DESC')->take(5)->get();
-    }
-
-    public function polling()
-    {
-        $polling = Polling::where('type', 'question')->first();
-        $polling['answer'] = Polling::where('parent', data_get($polling,'id'))->get();
-
-        return $polling;
-    }
-
     public function index()
     {
         $populer = $this->populer();
@@ -97,6 +75,28 @@ class WebController extends Controller
         return view('web.page', compact('page', 'user', 'news', 'populer', 'agenda', 'polling', 'image'));
     }
 
+    public function populer()
+    {
+        return Post::whereHas('category', function($query){
+            $query->where('name', '=', 'berita');
+        })->where('type', 'post')->active()->orderBy('read', 'DESC')->take(5)->get();
+    }
+
+    public function article($category)
+    {
+        return Post::whereHas('category', function($query) use ($category) {
+            $query->where('name', '=', $category);
+        })->where('type', 'post')->active()->orderBy('created_at', 'DESC')->take(5)->get();
+    }
+
+    public function polling()
+    {
+        $polling = Polling::where('type', 'question')->first();
+        $polling['answer'] = Polling::where('parent', data_get($polling,'id'))->get();
+
+        return $polling;
+    }
+
     public function page_polling($id)
     {
         $populer = $this->populer();
@@ -122,5 +122,47 @@ class WebController extends Controller
         $polling->save();
 
         return redirect()->route('polling', $polling->parent)->withMessage('Terima kasih atas partisipasi anda');
+    }
+
+    public function foto_page()
+    {
+        $populer = $this->populer();
+        $polling = $this->polling();
+
+        $news = $this->article('berita');
+        $agenda = $this->article('agenda');
+        $article = $this->article('artikel');
+        $announcement = $this->article('pengumuman');
+        $image = new File;
+
+        return view('web.foto-page', compact('news', 'populer', 'agenda', 'polling', 'image'));
+    }
+
+    public function video_page()
+    {
+        $populer = $this->populer();
+        $polling = $this->polling();
+
+        $news = $this->article('berita');
+        $agenda = $this->article('agenda');
+        $article = $this->article('artikel');
+        $announcement = $this->article('pengumuman');
+        $image = new File;
+
+        return view('web.video-page', compact('news', 'populer', 'agenda', 'polling', 'image'));
+    }
+
+    public function contact_page()
+    {
+        $populer = $this->populer();
+        $polling = $this->polling();
+
+        $news = $this->article('berita');
+        $agenda = $this->article('agenda');
+        $article = $this->article('artikel');
+        $announcement = $this->article('pengumuman');
+        $image = new File;
+
+        return view('web.contact-page', compact('news', 'populer', 'agenda', 'polling', 'image'));
     }
 }
