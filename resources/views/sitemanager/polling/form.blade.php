@@ -3,7 +3,7 @@
 <div class="row justify-content-center pb-2">
   <div class="col-lg-8">
     <h1 class="h4">
-      {{ old('id') ? 'Edit' : 'Create' }} Polling
+      {{ old('id') ? 'Edit' : 'Buat' }} Polling
     </h1>
   </div>
 </div>
@@ -17,12 +17,12 @@
       <div class="form-group">
         <label for="" class="form-label">Polling</label>
         <input type="hidden" name="parent_id" value="{{ $parent->id }}">
-        <input type="text" name="parent" class="form-control" value="{{ $parent->content }}">
+        <input type="text" name="parent" class="form-control" value="{{ $parent->content }}" readonly>
       </div>
       @endif
 
       <div class="form-group">
-        <label for="" class="form-label">Name {{ $parent == null ? '' : 'Answer'}}</label>
+        <label for="" class="form-label">Pertanyaan {{ $parent == null ? '' : 'Jawaban'}}</label>
         <input type="text" name="content" class="form-control" value="{{ old('content')}}">
       </div>
       <div class="d-flex justify-content-between pt-2">

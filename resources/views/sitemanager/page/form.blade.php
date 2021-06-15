@@ -17,6 +17,7 @@
         <select name="menu_id" class="form-control">
           @foreach ($menu as $key => $item)
               <optgroup label="{{ strtoupper($item->name) }}">
+                <option value="{{ $item->id }}" {{ selected(old('type_id'), $item->id) }}>* {{ $item->name }}</option>
                 @foreach ($item->subitem as $subindex => $subitem)
                   <option value="{{ $subitem->id }}" {{ selected(old('type_id'),$subitem->id) }}>{{ $subitem->name }}</option>
                 @endforeach

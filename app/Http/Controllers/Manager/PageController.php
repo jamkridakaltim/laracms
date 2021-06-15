@@ -43,9 +43,10 @@ class PageController extends Controller
             $method = "POST";
         }
 
-        $menu = Menu::whereNull('parent_id')->active()->get();
+        $menu = Menu::whereNull('parent_id')->active()->unlock()->get();
+
         $menu->each(function($item){
-            $item->subitem = Menu::where('parent_id', $item->id)->active()->get();
+            $item->subitem = Menu::where('parent_id', $item->id)->active()->unlock()->get();
         });
 
         return view('sitemanager.page.form', compact('action', 'method', 'menu'));

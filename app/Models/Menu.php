@@ -13,4 +13,9 @@ class Menu extends Model
     {
         return $query->where('status', 1);
     }
+
+    public function scopeUnlock($query)
+    {
+        return $query->where('lock', 0);
+    }
 }

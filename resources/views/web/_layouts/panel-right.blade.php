@@ -1,16 +1,16 @@
-<form class="form-inline mb-3">
+{{-- <form class="form-inline mb-3">
   <input class="form-control form-control-sm col mr-sm-2" type="search" placeholder="Cari Info Disini" aria-label="Search">
   <button class="btn btn-sm btn-outline-success" type="submit">Go !</button>
-</form>
+</form> --}}
 
-{{-- <div class="card border-white mb-3">
+<div class="card border-white">
   <div class="embed-responsive embed-responsive-16by9 mb-2">
     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
   </div>
   <div class="embed-responsive embed-responsive-16by9 mb-2">
     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
   </div>
-</div> --}}
+</div>
 
 
 <div class="card border-white mb-3">
@@ -68,63 +68,7 @@
   </div>
 </div>
 
-{{-- <div class="card border-white mb-3">
-  <div class="px-4 py-3 bg-success text-white">
-    <span class="h5"><i class="bi bi-list mr-2"></i> DAFTAR HARGA</span>
-  </div>
-  <div class="p-1 bg-warning"></div>
-  <marquee scrollamount="2" direction="up" height="300">
-    <div class="media py-2">
-      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
-      <div class="media-body">
-        <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-      </div>
-    </div>
-    <div class="media py-2">
-      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
-      <div class="media-body">
-        <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-      </div>
-    </div>
-    <div class="media py-2">
-      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
-      <div class="media-body">
-        <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-      </div>
-    </div>
-    <div class="media py-2">
-      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
-      <div class="media-body">
-        <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-      </div>
-    </div>
-    <div class="media py-2">
-      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
-      <div class="media-body">
-        <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-      </div>
-    </div>
-    <div class="media py-2">
-      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
-      <div class="media-body">
-        <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-      </div>
-    </div>
-    <div class="media py-2">
-      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
-      <div class="media-body">
-        <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-      </div>
-    </div>
-    <div class="media py-2">
-      <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
-      <div class="media-body">
-        <p>Will you do the same for me? It's time to face the music I'm no longer your muse. </p>
-      </div>
-    </div>
-  </marquee>
-</div> --}}
-{{-- @if($pollingcount > 0) --}}
+
 <div class="card border-white mb-3">
   <div class="px-4 py-3 bg-success text-white">
     <span class="h5"><i class="bi bi-bar-chart-steps mr-2"></i> POLLING</span>
@@ -145,7 +89,6 @@
     </div>
   </form>
 </div>
-{{-- @endif --}}
 
 <div class="card border-white mb-3">
   <div class="px-4 py-3 bg-success text-white">

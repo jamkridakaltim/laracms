@@ -63,16 +63,10 @@ class PollingController extends Controller
         }
 
         $polling->content = request()->input('content');
-        $polling->parent = request()->input('parent_id');
+        $polling->parent = request()->input('parent_id')?:0;
         if(!is_null(request()->input('parent_id'))){
             $polling->type = 'answer';
         }
-
-        // if(!is_null(request()->input('link'))){
-        //     $polling->link = request()->input('link');
-        // }else{
-        //     $polling->link = "page/". Str::slug(request()->input('name'));
-        // }
 
         $polling->status = 1;
 
