@@ -48,6 +48,7 @@ class WebController extends Controller
         $image = new File;
 
         $video = Gallery::video()->paginate(2);
+        $link = Link::paginate(5);
 
         $post = Post::where('slug', $post)->first();
         $user = User::find(data_get($post,'user_id'));
@@ -58,7 +59,7 @@ class WebController extends Controller
             return redirect()->route('beranda')->withError('Berita Tidak Lengkap, Hubungi Admin');
         }
 
-        return view('web.post', compact('post', 'user', 'news', 'populer', 'agenda', 'polling', 'image', 'video'));
+        return view('web.post', compact('post', 'user', 'news', 'populer', 'agenda', 'polling', 'image', 'video', 'link'));
     }
 
     public function page($page)
@@ -73,6 +74,7 @@ class WebController extends Controller
         $image = new File;
 
         $video = Gallery::video()->paginate(2);
+        $link = Link::paginate(5);
 
         $menu = Menu::where('slug', $page)->first();
         $page = Page::where('type', 'page')->where('type_id', $menu->id)->first();
@@ -82,7 +84,7 @@ class WebController extends Controller
             return redirect()->route('beranda')->withError('Halaman Belum Tersedia, Hubungi Admin');
         }
 
-        return view('web.page', compact('page', 'user', 'news', 'populer', 'agenda', 'polling', 'image', 'video'));
+        return view('web.page', compact('page', 'user', 'news', 'populer', 'agenda', 'polling', 'image', 'video', 'link'));
     }
 
     public function populer()
@@ -119,12 +121,13 @@ class WebController extends Controller
         $image = new File;
 
         $video = Gallery::video()->paginate(2);
+        $link = Link::paginate(5);
 
         $result = Polling::find($id);
         $result['answer'] = Polling::where('parent', $id)->get();
         $result['total'] = Polling::where('parent', $id)->get()->sum('score');
 
-        return view('web.page-polling', compact('result', 'news', 'populer', 'agenda', 'polling', 'image', 'video'));
+        return view('web.page-polling', compact('result', 'news', 'populer', 'agenda', 'polling', 'image', 'video', 'link'));
     }
 
     public function vote_polling()
@@ -149,8 +152,9 @@ class WebController extends Controller
         $image = new File;
 
         $video = Gallery::video()->paginate(2);
+        $link = Link::paginate(5);
 
-        return view('web.foto-page', compact('news', 'populer', 'agenda', 'polling', 'gallery', 'image','video'));
+        return view('web.foto-page', compact('news', 'populer', 'agenda', 'polling', 'gallery', 'image', 'video', 'link'));
     }
 
     public function foto_show($slug)
@@ -166,10 +170,11 @@ class WebController extends Controller
         $image = new File;
 
         $video = Gallery::video()->paginate(2);
+        $link = Link::paginate(5);
 
         $sub = $slug;
 
-        return view('web.foto-show', compact('news', 'populer', 'agenda', 'polling', 'gallery', 'sub', 'image', 'video'));
+        return view('web.foto-show', compact('news', 'populer', 'agenda', 'polling', 'gallery', 'sub', 'image', 'video', 'link'));
     }
 
     public function video_page()
@@ -184,10 +189,11 @@ class WebController extends Controller
 
         $video = Gallery::video()->paginate(2);
         $listVideo = Gallery::video()->paginate();
+        $link = Link::paginate(5);
 
         $image = new File;
 
-        return view('web.video-page', compact('news', 'populer', 'agenda', 'polling', 'image', 'video', 'listVideo'));
+        return view('web.video-page', compact('news', 'populer', 'agenda', 'polling', 'image', 'video', 'listVideo', 'link'));
     }
 
     public function contact_page()
@@ -201,8 +207,9 @@ class WebController extends Controller
         $announcement = $this->article('pengumuman');
         $video = Gallery::video()->paginate(2);
         $image = new File;
+        $link = Link::paginate(5);
 
-        return view('web.contact-page', compact('news', 'populer', 'agenda', 'polling', 'image', 'video'));
+        return view('web.contact-page', compact('news', 'populer', 'agenda', 'polling', 'image', 'video', 'link'));
     }
 
     public function contact_send()
