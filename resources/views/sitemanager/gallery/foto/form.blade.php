@@ -3,7 +3,7 @@
 <div class="row justify-content-center pb-2">
   <div class="col-lg-12">
     <h1 class="h4">
-      {{ old('id') ? 'Edit' : 'Add' }} File
+      {{ old('id') ? 'Edit' : 'Tambah' }} Foto
     </h1>
   </div>
 </div>
@@ -14,11 +14,11 @@
       @method($method)
       <div class="form-group">
         <label for="" class="form-label">Caption</label>
-        <input type="text" name="caption" class="form-control" value="{{ data_get($foto, 'caption') }}">
+        <input type="text" name="caption" class="form-control" value="{{ data_get($foto, 'caption') }}" {{ data_get($foto, 'featured') != 0 ? 'readonly' : '' }}>
       </div>
       <div class="form-group">
         <label for="" class="form-label">Deskripsi</label>
-        <textarea name="description" class="form-control">{{ data_get($foto, 'description') }}</textarea>
+        <textarea name="description" class="form-control" {{ data_get($foto, 'featured') != 0 ? 'readonly' : '' }}>{{ data_get($foto, 'description') }}</textarea>
       </div>
       <div class="mb-4">
         <div class="custom-file">

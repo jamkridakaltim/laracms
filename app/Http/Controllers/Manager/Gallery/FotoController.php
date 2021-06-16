@@ -11,7 +11,7 @@ class FotoController extends Controller
 {
     public function index()
     {
-        $gallery = Gallery::image()->where('featured', 1)->paginate();
+        $gallery = Gallery::image()->where('featured', 1)->paginate(9);
         return view('sitemanager.gallery.foto.index', compact('gallery'));
     }
 

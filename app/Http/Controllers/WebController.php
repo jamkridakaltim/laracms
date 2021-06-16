@@ -8,6 +8,7 @@ use App\Models\Post\Post;
 use App\Models\Post\Post as Page;
 use App\Models\User;
 use App\Models\File;
+use App\Models\Gallery;
 use App\Models\Polling;
 
 class WebController extends Controller
@@ -24,10 +25,12 @@ class WebController extends Controller
         $national = $this->article('nasional');
         $image = new File;
 
+        $video = Gallery::video()->paginate(2);
+
         // dd($polling != null ? 'true' : 'false');
 
 
-        return view('web.index', compact('news', 'populer', 'agenda', 'polling', 'article', 'announcement', 'national', 'image'));
+        return view('web.index', compact('news', 'populer', 'agenda', 'polling', 'article', 'announcement', 'national', 'image', 'video'));
     }
 
     public function post($post)
@@ -41,6 +44,8 @@ class WebController extends Controller
         $announcement = $this->article('pengumuman');
         $image = new File;
 
+        $video = Gallery::video()->paginate(2);
+
         $post = Post::where('slug', $post)->first();
         $user = User::find(data_get($post,'user_id'));
 
@@ -50,7 +55,7 @@ class WebController extends Controller
             return redirect()->route('beranda')->withError('Berita Tidak Lengkap, Hubungi Admin');
         }
 
-        return view('web.post', compact('post', 'user', 'news', 'populer', 'agenda', 'polling', 'image'));
+        return view('web.post', compact('post', 'user', 'news', 'populer', 'agenda', 'polling', 'image', 'video'));
     }
 
     public function page($page)
@@ -64,6 +69,8 @@ class WebController extends Controller
         $announcement = $this->article('pengumuman');
         $image = new File;
 
+        $video = Gallery::video()->paginate(2);
+
         $menu = Menu::where('slug', $page)->first();
         $page = Page::where('type', 'page')->where('type_id', $menu->id)->first();
         $user = User::find(data_get($page,'user_id'));
@@ -72,7 +79,7 @@ class WebController extends Controller
             return redirect()->route('beranda')->withError('Halaman Belum Tersedia, Hubungi Admin');
         }
 
-        return view('web.page', compact('page', 'user', 'news', 'populer', 'agenda', 'polling', 'image'));
+        return view('web.page', compact('page', 'user', 'news', 'populer', 'agenda', 'polling', 'image', 'video'));
     }
 
     public function populer()
@@ -108,11 +115,13 @@ class WebController extends Controller
         $announcement = $this->article('pengumuman');
         $image = new File;
 
+        $video = Gallery::video()->paginate(2);
+
         $result = Polling::find($id);
         $result['answer'] = Polling::where('parent', $id)->get();
         $result['total'] = Polling::where('parent', $id)->get()->sum('score');
 
-        return view('web.page-polling', compact('result', 'news', 'populer', 'agenda', 'polling', 'image'));
+        return view('web.page-polling', compact('result', 'news', 'populer', 'agenda', 'polling', 'image', 'video'));
     }
 
     public function vote_polling()
@@ -133,9 +142,31 @@ class WebController extends Controller
         $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
+        $gallery = Gallery::image()->where('featured', 1)->paginate(9);
         $image = new File;
 
-        return view('web.foto-page', compact('news', 'populer', 'agenda', 'polling', 'image'));
+        $video = Gallery::video()->paginate(2);
+
+        return view('web.foto-page', compact('news', 'populer', 'agenda', 'polling', 'gallery', 'image','video'));
+    }
+
+    public function foto_show($slug)
+    {
+        $populer = $this->populer();
+        $polling = $this->polling();
+
+        $news = $this->article('berita');
+        $agenda = $this->article('agenda');
+        $article = $this->article('artikel');
+        $announcement = $this->article('pengumuman');
+        $gallery = Gallery::image()->where('slug',$slug)->get();
+        $image = new File;
+
+        $video = Gallery::video()->paginate(2);
+
+        $sub = $slug;
+
+        return view('web.foto-show', compact('news', 'populer', 'agenda', 'polling', 'gallery', 'sub', 'image', 'video'));
     }
 
     public function video_page()
@@ -147,9 +178,13 @@ class WebController extends Controller
         $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
+
+        $video = Gallery::video()->paginate(2);
+        $listVideo = Gallery::video()->paginate();
+
         $image = new File;
 
-        return view('web.video-page', compact('news', 'populer', 'agenda', 'polling', 'image'));
+        return view('web.video-page', compact('news', 'populer', 'agenda', 'polling', 'image', 'video', 'listVideo'));
     }
 
     public function contact_page()
@@ -161,8 +196,9 @@ class WebController extends Controller
         $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
+        $video = Gallery::video()->paginate(2);
         $image = new File;
 
-        return view('web.contact-page', compact('news', 'populer', 'agenda', 'polling', 'image'));
+        return view('web.contact-page', compact('news', 'populer', 'agenda', 'polling', 'image', 'video'));
     }
 }

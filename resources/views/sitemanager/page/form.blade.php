@@ -24,6 +24,7 @@
               </optgroup>
           @endforeach
         </select>
+        <span class="text-muted">*) Hanya bisa digunakan jika tidak memiliki submenu</span>
       </div>
       {{-- <div class="form-group">
         <label for="" class="form-label">Title</label>

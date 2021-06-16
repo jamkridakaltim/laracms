@@ -1,4 +1,4 @@
-<div class="bg-white">
+<div class="bg-gray-300">
   <div class="container" style="height: 120px">
     <div class="pt-4 d-flex justify-content-between">
       <div class="d-flex">
@@ -45,11 +45,11 @@
           <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-card-image"></i> Galeri</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="{{ url('sitemanager/gallery/foto')}}"> Foto</a>
-            <a class="dropdown-item text-danger" href="{{ url('sitemanager/gallery/video')}}"> Video</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/gallery/video')}}"> Video</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-nut"></i> Opsional</a>
+          <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-nut"></i> Manajemen</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="{{ url('sitemanager/polling')}}"> Polling</a>
             <a class="dropdown-item" href="{{ url('sitemanager/file')}}"> File</a>
@@ -57,24 +57,6 @@
             <a class="dropdown-item" href="{{ url('sitemanager/setting')}}"> Pengaturan</a>
           </div>
         </li>
-        {{-- <li class="nav-item">
-            <a class="nav-link text-white" href="{{ url('sitemanager/polling') }}"><i class="bi-list-stars"></i> Polling</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" href="{{ url('sitemanager/file') }}"><i class="bi-archive"></i> File</a>
-        </li> --}}
-        {{-- <li class="nav-item">
-            <a class="nav-link text-white" href="{{ url('sitemanager/setting') }}"><i class="bi-sliders"></i> Pengaturan</a>
-        </li> --}}
-        {{--
-        <li class="nav-item dropdown">
-          <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-sliders"></i> Setting</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Setup</a>
-            <a class="dropdown-item" href="#">Profile</a>
-            <a class="dropdown-item" href="#">User</a>
-          </div>
-        </li> --}}
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -86,5 +68,4 @@
       </ul>
     </div>
   </div>
-
 </nav>

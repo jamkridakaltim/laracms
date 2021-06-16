@@ -4,12 +4,16 @@
 </form> --}}
 
 <div class="card border-white">
+  @foreach ($video as $index => $item)
   <div class="embed-responsive embed-responsive-16by9 mb-2">
-    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $item->link }}?rel=0" allowfullscreen></iframe>
   </div>
-  <div class="embed-responsive embed-responsive-16by9 mb-2">
+  @endforeach
+
+  {{-- <div class="embed-responsive embed-responsive-16by9 mb-2">
     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-  </div>
+  </div> --}}
+
 </div>
 
 
@@ -103,18 +107,5 @@
       <a href="" class="list-group-item">E-SURAT</a>
       <a href="" class="list-group-item">UPTD.BPSMB</a>
     </span>
-  </div>
-</div>
-
-<div class="card border-white mb-3">
-  <div class="px-4 py-3 bg-success text-white">
-    <span class="h5">BANNER LINK</span>
-  </div>
-  <div class="p-1 bg-warning"></div>
-  <div class="py-2 text-center">
-      <img class="img-fluid mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/kemenperin.jpg">
-      <img class="img-fluid mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/depkop.jpg">
-      <img class="img-fluid mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/kemendag1.jpg">
-      <img class="img-fluid mb-2" src="https://indagkop.kaltimprov.go.id/asset/foto_pasangiklan/PEMPROV4.jpg">
   </div>
 </div>
