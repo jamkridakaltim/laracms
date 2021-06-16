@@ -117,8 +117,8 @@ class CreateInitTable extends Migration
         Schema::create('links', function($table){
             $table->increments('id');
             $table->string('category')->default('internal');
-            $table->string('name');
-            $table->string('link');
+            $table->string('name')->nullable();
+            $table->string('link')->nullable();
             $table->string('icon', 30)->nullable();
             $table->tinyInteger('order')->default(0);
             $table->tinyInteger('status')->default(1);
@@ -129,7 +129,8 @@ class CreateInitTable extends Migration
         Schema::create('contacts', function($table){
             $table->increments('id');
             $table->string('name');
-            $table->string('email');
+            $table->string('phone');
+            $table->string('email')->nullable();
             $table->string('website')->nullable();
             $table->text('message');
 

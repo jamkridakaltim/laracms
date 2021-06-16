@@ -13,7 +13,6 @@
 </div>
 <nav class="navbar navbar-expand-md navbar-light bg-purple">
   <div class="container">
-    {{-- <a class="navbar-brand text-white" href="#">CMS</a> --}}
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -53,7 +52,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="{{ url('sitemanager/polling')}}"> Polling</a>
             <a class="dropdown-item" href="{{ url('sitemanager/file')}}"> File</a>
-            <a class="dropdown-item text-danger" href="{{ url('sitemanager/banner')}}"> Banner</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/link')}}"> Links</a>
             <a class="dropdown-item" href="{{ url('sitemanager/setting')}}"> Pengaturan</a>
           </div>
         </li>

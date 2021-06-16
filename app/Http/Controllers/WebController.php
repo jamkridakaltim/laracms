@@ -8,7 +8,9 @@ use App\Models\Post\Post;
 use App\Models\Post\Post as Page;
 use App\Models\User;
 use App\Models\File;
+use App\Models\Link;
 use App\Models\Gallery;
+use App\Models\Contact;
 use App\Models\Polling;
 
 class WebController extends Controller
@@ -26,11 +28,12 @@ class WebController extends Controller
         $image = new File;
 
         $video = Gallery::video()->paginate(2);
+        $link = Link::paginate(5);
 
         // dd($polling != null ? 'true' : 'false');
 
 
-        return view('web.index', compact('news', 'populer', 'agenda', 'polling', 'article', 'announcement', 'national', 'image', 'video'));
+        return view('web.index', compact('news', 'populer', 'agenda', 'polling', 'article', 'announcement', 'national', 'image', 'video', 'link'));
     }
 
     public function post($post)
@@ -200,5 +203,17 @@ class WebController extends Controller
         $image = new File;
 
         return view('web.contact-page', compact('news', 'populer', 'agenda', 'polling', 'image', 'video'));
+    }
+
+    public function contact_send()
+    {
+        Contact::create([
+            'name' => request()->input('name'),
+            'phone' => request()->input('phone'),
+            'email' => request()->input('email'),
+            'message' => request()->input('message'),
+        ]);
+
+        return redirect()->back()->withMessage('Pesan Anda Telah Dikirim');
     }
 }

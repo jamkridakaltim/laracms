@@ -37,7 +37,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div class="p-1 bg-warning"></div>
+  <div class="p-1 bg-red"></div>
   @endsection
 @endif
 
@@ -46,7 +46,7 @@
     <div class="px-4 py-3 bg-success text-white">
       <span class="h5"><i class="bi-volume-up-fill"></i> BERITA TERKINI</span>
     </div>
-    <div class="p-1 bg-warning"></div>
+    <div class="p-1 bg-red"></div>
 
     <div class="p-2">
         @foreach ($news as $index => $item)
@@ -70,7 +70,7 @@
         <div class="px-4 py-3 bg-success text-white">
           <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> SEPUTAR INDAGKOP</span>
         </div>
-        <div class="p-1 bg-warning"></div>
+        <div class="p-1 bg-red"></div>
         <div class="p-2">
           @foreach ($news as $index => $item)
           <div class="media py-2">
@@ -89,7 +89,7 @@
         <div class="px-4 py-3 bg-success text-white">
           <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> ARTIKEL INDAGKOP</span>
         </div>
-        <div class="p-1 bg-warning"></div>
+        <div class="p-1 bg-red"></div>
         <div class="p-2">
           @foreach ($article as $index => $item)
           <div class="media py-2">
@@ -113,7 +113,7 @@
         <div class="px-4 py-3 bg-success text-white">
           <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> PENGUMUMAN</span>
         </div>
-        <div class="p-1 bg-warning"></div>
+        <div class="p-1 bg-red"></div>
         <div class="p-2">
           @foreach ($announcement as $index => $item)
           <div class="media py-2">
@@ -132,7 +132,7 @@
         <div class="px-4 py-3 bg-success text-white">
           <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> NASIONAL</span>
         </div>
-        <div class="p-1 bg-warning"></div>
+        <div class="p-1 bg-red"></div>
         <div class="p-2">
           @foreach ($national as $index => $item)
           <div class="media py-2">

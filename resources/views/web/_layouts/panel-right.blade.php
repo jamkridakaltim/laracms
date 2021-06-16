@@ -72,12 +72,12 @@
   </div>
 </div>
 
-
+@if(data_get($polling,'id',null) != null )
 <div class="card border-white mb-3">
   <div class="px-4 py-3 bg-success text-white">
     <span class="h5"><i class="bi bi-bar-chart-steps mr-2"></i> POLLING</span>
   </div>
-  <div class="p-1 bg-warning"></div>
+  <div class="p-1 bg-red"></div>
   <form action="{{ route('vote-polling') }}" method="post">
     @csrf
     @method('POST')
@@ -93,19 +93,18 @@
     </div>
   </form>
 </div>
+@endif
 
 <div class="card border-white mb-3">
   <div class="px-4 py-3 bg-success text-white">
-    <span class="h5">BANNER</span>
+    <span class="h5">EKSTERNAL LINK</span>
   </div>
-  <div class="p-1 bg-warning"></div>
+  <div class="p-1 bg-red"></div>
   <div class="py-2">
     <span class="list-group">
-      <a href="" class="list-group-item">PROUKM</a>
-      <a href="" class="list-group-item">Pengaduan Konsumen</a>
-      <a href="" class="list-group-item">E-SKA</a>
-      <a href="" class="list-group-item">E-SURAT</a>
-      <a href="" class="list-group-item">UPTD.BPSMB</a>
+      @foreach ($link as $index => $item)
+        <a href="{{ $item->link }}" class="list-group-item text-success" target="_blank">{{ $item->name }}</a>
+      @endforeach
     </span>
   </div>
 </div>
