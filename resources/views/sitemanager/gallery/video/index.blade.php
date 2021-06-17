@@ -17,8 +17,8 @@
             <div class="card-body">
               <p class="card-text">{{ $item->caption }}</p>
               <div class="d-flex justify-content-between align-items-center">
-                &nbsp;
                 <a href="{{ route('sitemanager.video.destroy', $item->id) }}" data-method="delete" class=" text-danger"><i class="bi-trash"></i> Hapus</a>
+                <a href="{{ route('sitemanager.video.edit', $item->id) }}" class=" text-purple"><i class="bi-pencil"></i> Edit</a>
               </div>
             </div>
           </div>

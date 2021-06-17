@@ -14,18 +14,18 @@
       @method($method)
       <div class="form-group">
         <label for="" class="form-label">Caption</label>
-        <input type="text" name="caption" class="form-control" value="{{ old('caption') }}">
+        <input type="text" name="caption" class="form-control" value="{{ old('caption') }}" required>
       </div>
       <div class="form-group">
         <label for="" class="form-label">Link</label>
-        <input type="text" name="link" class="form-control" value="{{ old('link') }}">
+        <input type="text" name="link" class="form-control" value="{{ old('link') ? ('https://www.youtube.com/watch?v='.old('link')) : ""}}">
         <span class="text-muted">
           Masukkan Link Video Youtube, Contoh: "https://www.youtube.com/watch?v=wiqSUtzgfKs
         </span>
       </div>
       <div class="form-group">
         <label for="" class="form-label">Deskripsi</label>
-        <textarea name="description" rows="5" class="form-control" {{ data_get($foto, 'featured') != 0 ? 'readonly' : '' }}>{{ data_get($foto, 'description') }}</textarea>
+        <textarea name="description" rows="5" class="form-control" required >{{ old('description') }}</textarea>
       </div>
       {{-- <div class="mb-4">
         @if(old('link'))

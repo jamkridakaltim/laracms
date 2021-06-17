@@ -36,10 +36,10 @@ class VideoController extends Controller
                 session()->flashInput(old());
             }
 
-            $action = route('sitemanager.video.update', [$id, 'featured' => request()->get('featured')]);
+            $action = route('sitemanager.video.update', $id);
             $method = 'PUT';
         }else{
-            $action = route('sitemanager.video.store', ['featured' => request()->get('featured')]);
+            $action = route('sitemanager.video.store');
             $method = 'POST';
         }
 
@@ -89,14 +89,9 @@ class VideoController extends Controller
     {
         $gallery = Gallery::find($id);
         if($id){
-            unlink($gallery->link);
             $gallery->delete();
 
-        if(request()->get('featured') == 1){
             return redirect()->route('sitemanager.video.index')->withMessage('Data Telah Dihapus');
-        }
-        return redirect()->route('sitemanager.video.show', $gallery->slug)->withMessage('Data Telah Dihapus');
-
         }
     }
 }
