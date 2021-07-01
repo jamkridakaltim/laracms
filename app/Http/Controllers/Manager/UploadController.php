@@ -44,8 +44,11 @@ class UploadController extends Controller
 
         $type = [
             'foto',
-            'banner',
-            'footer',
+            'banner-main',
+            'banner-top',
+            'banner-middle',
+            'banner-bottom',
+            // 'footer',
         ];
 
         return view('sitemanager.upload.form', compact('action', 'method', 'type'));

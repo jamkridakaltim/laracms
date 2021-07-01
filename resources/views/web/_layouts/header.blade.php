@@ -24,11 +24,15 @@
 
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-    @foreach ($web->banners() as $key => $item)
+    @forelse ($web->banners('banner') as $key => $item)
     <div class="carousel-item {{ $key == 0 ? 'active' : ''}}">
       <img src="{{ url($item->path) }}" class="d-block w-100">
     </div>
-    @endforeach
+    @empty
+    <div class="carousel-item active">
+      <img src="https://via.placeholder.com/1000x200.png/ffc107" class="d-block w-100">
+    </div>
+    @endforelse
   </div>
 </div>
 
