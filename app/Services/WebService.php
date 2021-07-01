@@ -19,9 +19,14 @@ class WebService
         return $menu;
     }
 
-    public function banners(Type $var = null)
+    public function banners()
     {
-        return File::where('type', 'banner')->get();
+        return File::where('type', 'banner-main')->get();
+    }
+
+    public function banner($type = null)
+    {
+        return File::where('type', '=', $type);
     }
 
     public function titlePage()

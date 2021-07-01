@@ -11,8 +11,8 @@
       <thead class="bg-purple">
         <th class="text-white text-center" width="50">#</th>
         <th class="text-white">Menu</th>
-        <th class="text-white">Title</th>
-        <th class="text-white text-center" width="80">Type</th>
+        <th class="text-white">Link</th>
+        <th class="text-white text-center" width="120">Type</th>
         <th class="text-white text-center" width="80"><i class="bi-file-text"></i></th>
       </thead>
       <tbody>

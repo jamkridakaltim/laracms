@@ -1,3 +1,4 @@
+@inject('web', 'App\Services\WebService')
 @extends('web._layouts.app')
 
 @if($news->count() > 0)
@@ -62,7 +63,8 @@
 
   </div>
 
-  <img src="{{ url('/images/banner_top.jpg') }}" class="img-fluid">
+  {{-- <img src="{{ url('/images/banner_top.jpg') }}" class="img-fluid"> --}}
+  <img src="{{ $web->banner('banner-top')->first() ? url($web->banner('banner-top')->value('path')) : 'https://via.placeholder.com/1000x150.png/ffc107' }}" class="img-fluid">
 
   <div class="row py-4">
     <div class="col-lg-6 col-sm-12">
@@ -105,7 +107,8 @@
     </div>
   </div>
 
-  <img src="{{ url('/images/banner_mid.jpg') }}" class="img-fluid">
+  {{-- <img src="{{ url('/images/banner_mid.jpg') }}" class="img-fluid"> --}}
+  <img src="{{ $web->banner('banner-middle')->first() ? url($web->banner('banner-middle')->value('path')) : 'https://via.placeholder.com/1000x150.png/ffc107' }}" class="img-fluid">
 
   <div class="row py-4">
     <div class="col-lg-6 col-sm-12">
