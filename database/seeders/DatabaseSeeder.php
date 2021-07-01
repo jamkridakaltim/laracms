@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
         $users = [
             [
                 'username' => 'super',
-                'password' => \Hash::make('diskopuk2021'),
+                'password' => \Hash::make('remaster'),
                 'level' => 'super',
             ],
             [
                 'username' => 'admin',
-                'password' => \Hash::make('diskopuk2021'),
+                'password' => \Hash::make('remaster'),
                 'level' => 'admin',
             ],
         ];
