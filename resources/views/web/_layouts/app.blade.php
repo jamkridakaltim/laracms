@@ -79,7 +79,7 @@
         {{-- Left Pane --}}
         <div class="col-lg-8 col-sm-12">
           @yield('content')
-          <img src="https://indagkop.kaltimprov.go.id/asset/foto_iklantengah/berdaulat12.jpg" class="img-fluid">
+          <img src="{{ url('/images/banner_bot.jpg') }}" class="img-fluid">
         </div>
 
         {{-- Right Pane --}}

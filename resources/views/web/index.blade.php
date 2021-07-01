@@ -62,7 +62,7 @@
 
   </div>
 
-  <img src="https://indagkop.kaltimprov.go.id/asset/foto_iklantengah/STOP_GRATIFIKASI1.jpg" class="img-fluid">
+  <img src="{{ url('/images/banner_top.jpg') }}" class="img-fluid">
 
   <div class="row py-4">
     <div class="col-lg-6 col-sm-12">
@@ -105,7 +105,7 @@
     </div>
   </div>
 
-  <img src="https://indagkop.kaltimprov.go.id/asset/foto_iklantengah/PUBLIKASI.jpg" class="img-fluid">
+  <img src="{{ url('/images/banner_mid.jpg') }}" class="img-fluid">
 
   <div class="row py-4">
     <div class="col-lg-6 col-sm-12">
