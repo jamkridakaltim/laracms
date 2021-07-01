@@ -42,7 +42,8 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Berita', 'slug' => Str::slug('Berita')],
             ['name' => 'Artikel', 'slug' => Str::slug('Artikel')],
             ['name' => 'Pegumuman', 'slug' => Str::slug('Pengumuman')],
-            ['name' => 'Agenda', 'slug' => Str::slug('Agenda')]
+            ['name' => 'Agenda', 'slug' => Str::slug('Agenda')],
+            ['name' => 'Nasional', 'slug' => Str::slug('Nasional')]
         ];
 
         \App\Models\Post\Category::insert($categories);
