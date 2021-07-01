@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
         $users = [
             [
                 'username' => 'super',
-                'password' => \Hash::make('remaster'),
+                'password' => \Hash::make('diskopuk2021'),
                 'level' => 'super',
             ],
             [
                 'username' => 'admin',
-                'password' => \Hash::make('admin'),
+                'password' => \Hash::make('diskopuk2021'),
                 'level' => 'admin',
             ],
         ];
@@ -42,12 +42,13 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Berita', 'slug' => Str::slug('Berita')],
             ['name' => 'Artikel', 'slug' => Str::slug('Artikel')],
             ['name' => 'Pegumuman', 'slug' => Str::slug('Pengumuman')],
-            ['name' => 'Agenda', 'slug' => Str::slug('Agenda')]
+            ['name' => 'Agenda', 'slug' => Str::slug('Agenda')],
+            ['name' => 'Nasional', 'slug' => Str::slug('Nasional')]
         ];
 
         \App\Models\Post\Category::insert($categories);
 
-        \App\Model\Setting::create([
+        \App\Models\Setting::create([
             'key' => 'title_page',
             'value' => 'Website Ku'
         ]);
