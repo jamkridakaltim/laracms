@@ -20,7 +20,7 @@
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-success font-weight-bold"><h5 class="h3 mt-0">{{ $item->title }}</h5></a>
             <div>
-              {!! tagline($item->content, 500) !!}
+              {{ tagline($item->content, 500) }}
             </div>
           </div>
         </div>
@@ -55,7 +55,9 @@
           <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-success font-weight-bold">{{ $item->title }}</a>
-            {!! tagline($item->content, 200) !!}
+            <p>
+              {{ tagline($item->content, 150) }}
+            </p>
           </div>
         </div>
         @endforeach

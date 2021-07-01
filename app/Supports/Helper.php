@@ -20,7 +20,7 @@ if(!function_exists('check_url')) {
 
 if(!function_exists('tagline')) {
     function tagline($text, $size){
-        return Str::limit($text, $size);
+        return Str::limit(strip_tags($text), $size);
     }
 }
 
