@@ -68,7 +68,7 @@
     <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
         <div class="px-4 py-3 bg-success text-white">
-          <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> SEPUTAR INDAGKOP</span>
+          <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> SEPUTAR DISKOPUKM</span>
         </div>
         <div class="p-1 bg-red"></div>
         <div class="p-2">
@@ -87,7 +87,7 @@
     <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
         <div class="px-4 py-3 bg-success text-white">
-          <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> ARTIKEL INDAGKOP</span>
+          <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> ARTIKEL DISKOPUKM</span>
         </div>
         <div class="p-1 bg-red"></div>
         <div class="p-2">
