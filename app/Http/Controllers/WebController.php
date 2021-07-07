@@ -27,7 +27,7 @@ class WebController extends Controller
         $national = $this->article('nasional');
         $image = new File;
 
-        $video = Gallery::video()->paginate(2);
+        $video = Gallery::video()->orderBy('created_at', 'DESC')->paginate(2);
         $link = Link::paginate(5);
 
         // dd($polling != null ? 'true' : 'false');
