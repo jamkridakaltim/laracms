@@ -10,6 +10,7 @@ use App\Http\Controllers\Manager\PollingController;
 use App\Http\Controllers\Manager\UploadController as FileController;
 use App\Http\Controllers\Manager\PostController;
 use App\Http\Controllers\Manager\SettingController;
+use App\Http\Controllers\Manager\UserController;
 use App\Http\Controllers\Manager\LinkController;
 use App\Http\Controllers\Manager\PostCategoryController;
 use App\Http\Controllers\Manager\Gallery\FotoController;
@@ -68,6 +69,7 @@ Route::prefix('sitemanager')->group(function() {
         Route::resource('file' ,FileController::class);
         Route::resource('link' ,LinkController::class);
         Route::resource('setting' ,SettingController::class);
+        Route::resource('user' ,UserController::class);
         Route::resource('gallery/foto' ,FotoController::class);
         Route::resource('gallery/video' ,VideoController::class);
 
