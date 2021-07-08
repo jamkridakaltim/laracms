@@ -60,6 +60,13 @@
             <a class="dropdown-item" href="{{ url('sitemanager/user')}}"> Pengguna</a>
           </div>
         </li>
+        @else
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-nut"></i> Manajemen</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="{{ url('sitemanager/file')}}"> File</a>
+          </div>
+        </li>
         @endif
       </ul>
       <ul class="navbar-nav">
