@@ -34,4 +34,9 @@ class WebService
         $setting = Setting::where('key', 'title_page');
         return $setting->value('value') ?: 'My Website';
     }
+    public function socialMedia($type)
+    {
+        $setting = Setting::where('key', $type);
+        return $setting->value('value');
+    }
 }

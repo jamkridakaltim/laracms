@@ -1,8 +1,8 @@
+@inject('web', 'App\Services\WebService')
 {{-- <form class="form-inline mb-3">
   <input class="form-control form-control-sm col mr-sm-2" type="search" placeholder="Cari Info Disini" aria-label="Search">
   <button class="btn btn-sm btn-outline-success" type="submit">Go !</button>
 </form> --}}
-
 <div class="card border-white">
   @foreach ($video as $index => $item)
   <div class="embed-responsive embed-responsive-16by9 mb-2">
@@ -97,7 +97,7 @@
 
 <div class="card border-white mb-3">
   <div class="px-4 py-3 bg-success text-white">
-    <span class="h5">EKSTERNAL LINK</span>
+    <span class="h5"><i class="bi bi-link mr-2"></i>EKSTERNAL LINK</span>
   </div>
   <div class="p-1 bg-red"></div>
   <div class="py-2">
@@ -106,5 +106,18 @@
         <a href="{{ $item->link }}" class="list-group-item text-success" target="_blank">{{ $item->name }}</a>
       @endforeach
     </span>
+  </div>
+</div>
+
+<div class="card border-white mb-3">
+  <div class="px-4 py-3 bg-success text-white">
+    <span class="h5"><i class="bi bi-phone mr-2"></i>SOSIAL MEDIA</span>
+  </div>
+  <div class="p-1 bg-red"></div>
+  <div class="py-2 text-center">
+    <a href="{{ $web->socialMedia('link_facebook')?:'#' }}" class="px-2 display-4 text-primary"><i class="bi bi-facebook"></i></a>
+    <a href="{{ $web->socialMedia('link_instagram')?:'#' }}" class="px-2 display-4 text-info"><i class="bi bi-instagram"></i></a>
+    <a href="{{ $web->socialMedia('link_youtube')?:'#' }}" class="px-2 display-4 text-danger"><i class="bi bi-youtube"></i></a>
+    <a href="{{ $web->socialMedia('link_twitter')?:'#' }}" class="px-2 display-4 text-aqua"><i class="bi bi-twitter"></i></a>
   </div>
 </div>
