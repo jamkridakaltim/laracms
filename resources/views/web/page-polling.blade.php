@@ -13,7 +13,9 @@
         @foreach ($result['answer'] as $index => $item)
         <label class="text-success font-weight-bold">{{ $item->content }}</label>
         <div class="progress mb-2" style="height: 32px;">
-          <div class="progress-bar progress-bar-striped bg-warning font-weight-bold" role="progressbar" style="width: {{ $item['total'] == null ? 0 : ($item->score/$result['total'])*100 }}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">{{ round(($item->score/$result['total'])*100) }}%</div>
+          <div class="progress-bar progress-bar-striped bg-warning font-weight-bold" role="progressbar" style="width: {{ $item->score == '0' ? 0 : ($item->score/$result['total'])*100 }}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            {{ $item->score == '0' ? 0 : round(($item->score/$result['total'])*100) }}%
+          </div>
         </div>
         @endforeach
 
