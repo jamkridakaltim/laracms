@@ -95,7 +95,7 @@ class CreateInitTable extends Migration
         Schema::create('pollings', function($table){
             $table->increments('id');
             $table->enum('type', ['question', 'answer'])->default('question');
-            $table->tinyInteger('parent')->default(0)->unsigned();
+            $table->tinyInteger('parent')->nullable();
             $table->string('content')->nullable();
             $table->double('score')->default(0);
             $table->tinyInteger('status')->default(0);
