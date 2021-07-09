@@ -63,7 +63,7 @@ class PollingController extends Controller
         }
 
         $polling->content = request()->input('content');
-        $polling->parent = request()->input('parent_id')?:0;
+        $polling->parent = request()->input('parent_id');
         if(!is_null(request()->input('parent_id'))){
             $polling->type = 'answer';
         }
