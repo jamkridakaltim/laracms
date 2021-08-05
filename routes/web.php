@@ -13,6 +13,7 @@ use App\Http\Controllers\Manager\SettingController;
 use App\Http\Controllers\Manager\UserController;
 use App\Http\Controllers\Manager\LinkController;
 use App\Http\Controllers\Manager\PostCategoryController;
+use App\Http\Controllers\Manager\AgendaController;
 use App\Http\Controllers\Manager\Gallery\FotoController;
 use App\Http\Controllers\Manager\Gallery\VideoController;
 
@@ -35,6 +36,7 @@ Route::get('beranda', function(){
 
 Route::get('/post/{post}', [ WebController::class, 'post' ]);
 Route::get('/page/{page}', [ WebController::class, 'page' ]);
+Route::get('/agenda', [ WebController::class, 'agenda' ]);
 
 Route::get('/galeri/foto', [WebController::class, 'foto_page']);
 Route::get('/galeri/foto/{foto}', [WebController::class, 'foto_show']);
@@ -65,6 +67,7 @@ Route::prefix('sitemanager')->group(function() {
         Route::resource('page' ,PageController::class);
         Route::resource('post' ,PostController::class);
         Route::resource('post-category' ,PostCategoryController::class);
+        Route::resource('agenda' ,AgendaController::class);
         Route::resource('polling' ,PollingController::class);
         Route::resource('file' ,FileController::class);
         Route::resource('link' ,LinkController::class);

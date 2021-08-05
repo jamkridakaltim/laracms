@@ -61,8 +61,8 @@
         <div class="media py-2">
           <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
           <div class="media-body">
-            <a href="{{ url("/post/".$item->slug) }}" class="text-dark">{{ $item->title }}</a>
-            <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
+            <a href="{{ url("/agenda/".$item->slug) }}" class="text-dark">{{ $item->caption }}</a>
+            <p class="small text-success">{{ date_indo($item->date) }} / {{ $item->location }}</p>
           </div>
         </div>
         @endforeach

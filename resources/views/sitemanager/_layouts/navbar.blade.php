@@ -35,11 +35,15 @@
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="{{ url('sitemanager/post')}}">Postingan</a>
             <a class="dropdown-item" href="{{ url('sitemanager/post-category')}}">Kategori</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/agenda')}}">Agenda</a>
           </div>
         </li>
         @else
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/post') }}"><i class="bi-file-richtext"></i> Postingan</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{{ url('sitemanager/agenda') }}"><i class="bi-calendar"></i> Agenda</a>
         </li>
         @endif
         <li class="nav-item dropdown">
