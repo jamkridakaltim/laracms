@@ -54,10 +54,11 @@ class WebController extends Controller
         $post = Post::where('slug', $post)->first();
         $user = User::find(data_get($post,'user_id'));
 
-        $read = $post->update(['read' => data_get($post,'read',0) + 1]);
 
         if(!$post){
             return redirect()->route('beranda')->withError('Berita Tidak Lengkap, Hubungi Admin');
+        }else{
+            $read = $post->update(['read' => data_get($post,'read',0) + 1]);
         }
 
         return view('web.post', compact('post', 'user', 'news', 'populer', 'agenda', 'polling', 'image', 'video', 'link'));
