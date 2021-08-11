@@ -72,14 +72,16 @@ class MenuController extends Controller
             $menu = new Menu;
         }
 
+        $slug = Str::slug(request()->input('name'));
+
         $menu->name = request()->input('name');
         $menu->parent_id = request()->input('parent_id');
-        $menu->slug = Str::slug(request()->input('name'));
+        $menu->slug = $slug;
 
         if(!is_null(request()->input('link'))){
             $menu->link = request()->input('link');
         }else{
-            $menu->link = "page/". Str::slug(request()->input('name'));
+            $menu->link = "page/". $slug;
         }
 
         $menu->status = request()->input('status') == 'on' ? 1 : 0;
