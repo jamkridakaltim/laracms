@@ -1,10 +1,10 @@
 @extends('web._layouts.app')
 @section('content')
   <div class="card border-white">
-    <div class="pl-4 py-2 bg-success text-white">
+    <div class="pl-4 py-2 bg-primary text-white">
       <span class="h6">Agenda</span>
     </div>
-    <div class="pl-4 py-2 bg-warning font-weight-bold">
+    <div class="pl-4 py-2 bg-info font-weight-bold">
       {{-- <i class="bi bi-clock"></i> {{ date_indo($page->published_at) }} / <i class="bi bi-person ml-1"></i>  {{ ucfirst($user->username) }} --}}
     </div>
     <div class="py-1">
