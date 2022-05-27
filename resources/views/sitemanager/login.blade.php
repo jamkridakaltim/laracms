@@ -9,12 +9,12 @@
             @csrf
             <div class="bg-white shadow rounded p-4">
                 <div class="text-center">
-                  <img src="{{ url('/images/logo-kota-samarinda.png')}}" height="128" alt="" class="mb-2">
+                  <img src="{{ url('/images/logo.png')}}" height="48" alt="" class="mb-2">
                 </div>
                 <div class="mb-4">
                   {{-- <span class="font-weight-bold">Siteman </span><br> --}}
-                  <span class="font-weight-bold">PEMERINTAH KOTA SAMARINDA </span><br>
-                  <h1 class="h4 font-weight-bold">DINAS KOPERASI & UKM</h1>
+                  {{-- <span class="font-weight-bold">PEMERINTAH KOTA SAMARINDA </span><br> --}}
+                  {{-- <h1 class="h4 font-weight-bold">DINAS KOPERASI & UKM</h1> --}}
                 </div>
                 <div class="form-group">
                     <input type="text" name="username" class="form-control" placeholder="Nama Pengguna" value="{{ old('username') }}" autofocus>

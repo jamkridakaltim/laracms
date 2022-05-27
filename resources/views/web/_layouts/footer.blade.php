@@ -1,5 +1,5 @@
 @inject('web', 'App\Services\WebService')
-<div class="p-1 bg-red"></div>
+<div class="p-1 bg-info"></div>
 <footer class="bg-dark mt-auto py-3">
   <div class="container">
     <div class="text-center">
@@ -7,4 +7,4 @@
     </div>
   </div>
 </footer>
-<div class="p-1 bg-red"></div>
+<div class="p-1 bg-info"></div>

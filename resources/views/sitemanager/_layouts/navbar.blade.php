@@ -2,11 +2,12 @@
   <div class="container" style="height: 120px">
     <div class="pt-4 d-flex justify-content-between">
       <div class="d-flex">
-        <img src="{{ url('/images/logo-kota-samarinda.png')}}" height="64" alt="">
-        <div class="ml-2">
+        {{-- <img src="{{ url('/images/logo-kota-samarinda.png')}}" height="64" alt=""> --}}
+        <img src="{{ url('/images/logo.png')}}" height="64" alt="">
+        {{-- <div class="ml-2">
           <span class="font-weight-bold">PEMERINTAH KOTA SAMARINDA </span><br>
           <h1 class="h4 font-weight-bold">DINAS KOPERASI & UKM</h1>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>

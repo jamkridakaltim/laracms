@@ -18,7 +18,7 @@
         <div class="media p-3">
           <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="200" class="mr-3" alt="...">
           <div class="media-body">
-            <a href="{{ url("/post/".$item->slug) }}" class="text-success font-weight-bold"><h5 class="h3 mt-0">{{ $item->title }}</h5></a>
+            <a href="{{ url("/post/".$item->slug) }}" class="text-primary font-weight-bold"><h5 class="h3 mt-0">{{ $item->title }}</h5></a>
             {{ tagline($item->content, 500) }}
           </div>
         </div>
@@ -36,23 +36,23 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div class="p-1 bg-red"></div>
+  <div class="p-1 bg-info"></div>
   @endsection
 @endif
 
 @section('content')
   <div class="card border-white">
-    <div class="px-4 py-3 bg-success text-white">
+    <div class="px-4 py-3 bg-primary text-white">
       <span class="h5"><i class="bi-volume-up-fill"></i> BERITA TERKINI</span>
     </div>
-    <div class="p-1 bg-red"></div>
+    <div class="p-1 bg-info"></div>
 
     <div class="p-2">
         @foreach ($news as $index => $item)
         <div class="media py-2">
           <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
           <div class="media-body">
-            <a href="{{ url("/post/".$item->slug) }}" class="text-success font-weight-bold">{{ $item->title }}</a>
+            <a href="{{ url("/post/".$item->slug) }}" class="text-primary font-weight-bold">{{ $item->title }}</a>
             <p>{{ tagline($item->content, 200) }}</p>
           </div>
         </div>
@@ -67,17 +67,17 @@
   <div class="row py-4">
     <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
-        <div class="px-4 py-3 bg-success text-white">
-          <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> SEPUTAR DISKOPUKM</span>
+        <div class="px-4 py-3 bg-primary text-white">
+          <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> SEPUTAR JAMKRIDAKALTIM</span>
         </div>
-        <div class="p-1 bg-red"></div>
+        <div class="p-1 bg-info"></div>
         <div class="p-2">
           @foreach ($news as $index => $item)
           <div class="media py-2">
             <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
             <div class="media-body">
               <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
-              <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
+              <p class="small text-primary">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
             </div>
           </div>
           @endforeach
@@ -86,17 +86,17 @@
     </div>
     <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
-        <div class="px-4 py-3 bg-success text-white">
-          <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> ARTIKEL DISKOPUKM</span>
+        <div class="px-4 py-3 bg-primary text-white">
+          <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> ARTIKEL JAMKRIDAKALTIM</span>
         </div>
-        <div class="p-1 bg-red"></div>
+        <div class="p-1 bg-info"></div>
         <div class="p-2">
           @foreach ($article as $index => $item)
           <div class="media py-2">
             <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
             <div class="media-body">
               <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
-              <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
+              <p class="small text-primary">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
             </div>
           </div>
           @endforeach
@@ -111,17 +111,17 @@
   <div class="row py-4">
     <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
-        <div class="px-4 py-3 bg-success text-white">
+        <div class="px-4 py-3 bg-primary text-white">
           <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> PENGUMUMAN</span>
         </div>
-        <div class="p-1 bg-red"></div>
+        <div class="p-1 bg-info"></div>
         <div class="p-2">
           @foreach ($announcement as $index => $item)
           <div class="media py-2">
             <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
             <div class="media-body">
               <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
-              <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
+              <p class="small text-primary">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
             </div>
           </div>
           @endforeach
@@ -130,17 +130,17 @@
     </div>
     <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
-        <div class="px-4 py-3 bg-success text-white">
+        <div class="px-4 py-3 bg-primary text-white">
           <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> NASIONAL</span>
         </div>
-        <div class="p-1 bg-red"></div>
+        <div class="p-1 bg-info"></div>
         <div class="p-2">
           @foreach ($national as $index => $item)
           <div class="media py-2">
             <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
             <div class="media-body">
               <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
-              <p class="small text-success">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
+              <p class="small text-primary">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
             </div>
           </div>
           @endforeach
