@@ -24,7 +24,7 @@
         <div class="custom-file">
           <input type="file" class="custom-file-input" name="file" id="file">
           <label class="custom-file-label" for="customFile">Pilih Gambar</label>
-          <small class="text-muted">Ukuran Gambar Max. 1.000 KB</small>
+          <small class="text-muted">Ukuran Gambar Max. 1.024 KB</small>
         </div>
         @if(old('path'))
         <div class="d-flex py-2">

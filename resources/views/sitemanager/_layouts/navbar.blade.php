@@ -21,23 +21,29 @@
         <li class="nav-item active">
             <a class="nav-link text-white" href="{{ url('sitemanager') }}"><i class="bi-house"></i> Home <span class="sr-only">(current)</span></a>
         </li>
+        @if(in_array(data_get(Auth::user(), 'level'),['super', 'admin']))
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/menu') }}"><i class="bi-menu-button"></i> Menu</a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/page') }}"><i class="bi-file-text"></i> Halaman</a>
         </li>
+        @endif
         @if(data_get(Auth::user(), 'level') == 'super')
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-file-richtext"></i> Postingan</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="{{ url('sitemanager/post')}}">Postingan</a>
             <a class="dropdown-item" href="{{ url('sitemanager/post-category')}}">Kategori</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/agenda')}}">Agenda</a>
           </div>
         </li>
         @else
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('sitemanager/post') }}"><i class="bi-file-richtext"></i> Postingan</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{{ url('sitemanager/agenda') }}"><i class="bi-calendar"></i> Agenda</a>
         </li>
         @endif
         <li class="nav-item dropdown">
@@ -47,6 +53,7 @@
             <a class="dropdown-item" href="{{ url('sitemanager/gallery/video')}}"> Video</a>
           </div>
         </li>
+        @if(in_array(data_get(Auth::user(), 'level') ,['super', 'admin']))
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-nut"></i> Manajemen</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -54,8 +61,17 @@
             <a class="dropdown-item" href="{{ url('sitemanager/file')}}"> File</a>
             <a class="dropdown-item" href="{{ url('sitemanager/link')}}"> Links</a>
             <a class="dropdown-item" href="{{ url('sitemanager/setting')}}"> Pengaturan</a>
+            <a class="dropdown-item" href="{{ url('sitemanager/user')}}"> Pengguna</a>
           </div>
         </li>
+        @else
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-nut"></i> Manajemen</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="{{ url('sitemanager/file')}}"> File</a>
+          </div>
+        </li>
+        @endif
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">

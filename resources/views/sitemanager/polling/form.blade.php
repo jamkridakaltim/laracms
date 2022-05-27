@@ -28,12 +28,12 @@
       <div class="d-flex justify-content-between pt-2">
         <div>
           @if(old('id'))
-            <a href="{{ route('sitemanager.menu.destroy', old('id')) }}" data-method="delete" class="btn btn-sm btn-outline-danger"><i class="bi-trash"></i> Delete</a>
+            <a href="{{ route('sitemanager.polling.destroy', old('id')) }}" data-method="delete" class="btn btn-sm btn-outline-danger"><i class="bi-trash"></i> Delete</a>
           @endif
         </div>
         <div class="text-right">
           <button type="submit" class="btn btn-sm btn-outline-primary"><i class="bi-save"></i> Save</button>
-          <a href="{{ route('sitemanager.menu.index') }}" class="btn btn-sm btn-outline-secondary"><i class="bi-x-circle"></i> Cancel</a>
+          <a href="{{ route('sitemanager.polling.index') }}" class="btn btn-sm btn-outline-secondary"><i class="bi-x-circle"></i> Cancel</a>
         </div>
 
       </div>

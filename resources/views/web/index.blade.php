@@ -19,9 +19,7 @@
           <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="200" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-success font-weight-bold"><h5 class="h3 mt-0">{{ $item->title }}</h5></a>
-            <div>
-              {{ tagline($item->content, 500) }}
-            </div>
+            {{ tagline($item->content, 500) }}
           </div>
         </div>
       </div>
@@ -55,9 +53,7 @@
           <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-success font-weight-bold">{{ $item->title }}</a>
-            <p>
-              {{ tagline($item->content, 150) }}
-            </p>
+            <p>{{ tagline($item->content, 200) }}</p>
           </div>
         </div>
         @endforeach
@@ -72,7 +68,7 @@
     <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
         <div class="px-4 py-3 bg-success text-white">
-          <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> SEPUTAR INDAGKOP</span>
+          <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> SEPUTAR DISKOPUKM</span>
         </div>
         <div class="p-1 bg-red"></div>
         <div class="p-2">
@@ -91,7 +87,7 @@
     <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
         <div class="px-4 py-3 bg-success text-white">
-          <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> ARTIKEL INDAGKOP</span>
+          <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> ARTIKEL DISKOPUKM</span>
         </div>
         <div class="p-1 bg-red"></div>
         <div class="p-2">

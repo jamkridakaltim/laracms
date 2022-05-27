@@ -12,6 +12,7 @@ use App\Models\Link;
 use App\Models\Gallery;
 use App\Models\Contact;
 use App\Models\Polling;
+use App\Models\Agenda;
 
 class WebController extends Controller
 {
@@ -21,14 +22,14 @@ class WebController extends Controller
         $polling = $this->polling();
 
         $news = $this->article('berita');
-        $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
         $national = $this->article('nasional');
         $image = new File;
 
-        $video = Gallery::video()->paginate(2);
+        $video = Gallery::video()->orderBy('created_at', 'DESC')->paginate(2);
         $link = Link::paginate(5);
+        $agenda = Agenda::orderBy('created_at', 'DESC')->paginate(5);
 
         // dd($polling != null ? 'true' : 'false');
 
@@ -42,21 +43,22 @@ class WebController extends Controller
         $polling = $this->polling();
 
         $news = $this->article('berita');
-        $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
         $image = new File;
 
-        $video = Gallery::video()->paginate(2);
+        $video = Gallery::video()->orderBy('created_at', 'DESC')->paginate(2);
         $link = Link::paginate(5);
+        $agenda = Agenda::orderBy('created_at', 'DESC')->paginate(5);
 
         $post = Post::where('slug', $post)->first();
         $user = User::find(data_get($post,'user_id'));
 
-        $read = $post->update(['read' => $post->read + 1]);
 
         if(!$post){
             return redirect()->route('beranda')->withError('Berita Tidak Lengkap, Hubungi Admin');
+        }else{
+            $read = $post->update(['read' => data_get($post,'read',0) + 1]);
         }
 
         return view('web.post', compact('post', 'user', 'news', 'populer', 'agenda', 'polling', 'image', 'video', 'link'));
@@ -68,13 +70,13 @@ class WebController extends Controller
         $polling = $this->polling();
 
         $news = $this->article('berita');
-        $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
         $image = new File;
 
-        $video = Gallery::video()->paginate(2);
+        $video = Gallery::video()->orderBy('created_at', 'DESC')->paginate(2);
         $link = Link::paginate(5);
+        $agenda = Agenda::orderBy('created_at', 'DESC')->paginate(5);
 
         $menu = Menu::where('slug', $page)->first();
         $page = Page::where('type', 'page')->where('type_id', $menu->id)->first();
@@ -85,6 +87,32 @@ class WebController extends Controller
         }
 
         return view('web.page', compact('page', 'user', 'news', 'populer', 'agenda', 'polling', 'image', 'video', 'link'));
+    }
+
+    public function agenda()
+    {
+        $populer = $this->populer();
+        $polling = $this->polling();
+
+        $news = $this->article('berita');
+        $article = $this->article('artikel');
+        $announcement = $this->article('pengumuman');
+        $image = new File;
+
+        $video = Gallery::video()->orderBy('created_at', 'DESC')->paginate(2);
+        $link = Link::paginate(5);
+        $agenda = Agenda::orderBy('created_at', 'DESC')->paginate(5);
+        $listAgenda = Agenda::orderBy('created_at', 'DESC')->paginate(15);
+
+        // $menu = Menu::where('slug', $page)->first();
+        // $page = Page::where('type', 'page')->where('type_id', $menu->id)->first();
+        // $user = User::find(data_get($page,'user_id'));
+
+        // if(!$page){
+        //     return redirect()->route('beranda')->withError('Halaman Belum Tersedia, Hubungi Admin');
+        // }
+
+        return view('web.agenda', compact('news', 'populer', 'agenda', 'polling', 'image', 'video', 'link', 'listAgenda'));
     }
 
     public function populer()
@@ -115,13 +143,13 @@ class WebController extends Controller
         $polling = $this->polling();
 
         $news = $this->article('berita');
-        $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
         $image = new File;
 
-        $video = Gallery::video()->paginate(2);
+        $video = Gallery::video()->orderBy('created_at', 'DESC')->paginate(2);
         $link = Link::paginate(5);
+        $agenda = Agenda::orderBy('created_at', 'DESC')->paginate(5);
 
         $result = Polling::find($id);
         $result['answer'] = Polling::where('parent', $id)->get();
@@ -145,14 +173,14 @@ class WebController extends Controller
         $polling = $this->polling();
 
         $news = $this->article('berita');
-        $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
         $gallery = Gallery::image()->where('featured', 1)->paginate(9);
         $image = new File;
 
-        $video = Gallery::video()->paginate(2);
+        $video = Gallery::video()->orderBy('created_at', 'DESC')->paginate(2);
         $link = Link::paginate(5);
+        $agenda = Agenda::orderBy('created_at', 'DESC')->paginate(5);
 
         return view('web.foto-page', compact('news', 'populer', 'agenda', 'polling', 'gallery', 'image', 'video', 'link'));
     }
@@ -163,14 +191,14 @@ class WebController extends Controller
         $polling = $this->polling();
 
         $news = $this->article('berita');
-        $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
         $gallery = Gallery::image()->where('slug',$slug)->get();
         $image = new File;
 
-        $video = Gallery::video()->paginate(2);
+        $video = Gallery::video()->orderBy('created_at', 'DESC')->paginate(2);
         $link = Link::paginate(5);
+        $agenda = Agenda::orderBy('created_at', 'DESC')->paginate(5);
 
         $sub = $slug;
 
@@ -183,13 +211,13 @@ class WebController extends Controller
         $polling = $this->polling();
 
         $news = $this->article('berita');
-        $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
 
-        $video = Gallery::video()->paginate(2);
+        $video = Gallery::video()->orderBy('created_at', 'DESC')->paginate(2);
         $listVideo = Gallery::video()->paginate();
         $link = Link::paginate(5);
+        $agenda = Agenda::orderBy('created_at', 'DESC')->paginate(5);
 
         $image = new File;
 
@@ -202,12 +230,12 @@ class WebController extends Controller
         $polling = $this->polling();
 
         $news = $this->article('berita');
-        $agenda = $this->article('agenda');
         $article = $this->article('artikel');
         $announcement = $this->article('pengumuman');
-        $video = Gallery::video()->paginate(2);
+        $video = Gallery::video()->orderBy('created_at', 'DESC')->paginate(2);
         $image = new File;
         $link = Link::paginate(5);
+        $agenda = Agenda::orderBy('created_at', 'DESC')->paginate(5);
 
         return view('web.contact-page', compact('news', 'populer', 'agenda', 'polling', 'image', 'video', 'link'));
     }
