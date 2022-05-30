@@ -80,7 +80,7 @@
         {{-- Left Pane --}}
         <div class="col-lg-8 col-sm-12">
           @yield('content')
-          <img src="{{ $web->banner('banner-bottom')->first() ? url($web->banner('banner-bottom')->value('path')) : 'https://via.placeholder.com/1000x150.png/ffc107' }}" class="img-fluid">
+          <img src="{{ $web->banner('banner-bottom')->first() ? url($web->banner('banner-bottom')->value('path')) : 'https://via.placeholder.com/1000x150.png' }}" class="img-fluid">
         </div>
 
         {{-- Right Pane --}}

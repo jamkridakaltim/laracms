@@ -1,41 +1,4 @@
 @inject('web', 'App\Services\WebService')
-<div class="p-1 bg-info"></div>
-<div class="container">
-  <div class="d-flex row bg-dark">
-    <div class="p-2 bg-primary text-white rounded-right">Breaking News !</div>
-    <div class="col-8 p-2 bg-dark">
-      <marquee class="text-white">
-        @foreach ($news as $index => $item)
-          <a href="{{ url("/post/".$item->slug) }}" class="text-warning"><i class="bi bi-file-richtext mr-2"></i>{{ $item->title }}</a> &nbsp; - &nbsp;
-        @endforeach
-      </marquee>
-    </div>
-    <div class="col p-2 bg-primary text-white rounded-left">
-      <div class="digital_clock_wrapper">
-        {{ date_indo(today()) }},
-        <span id="digit_clock_time"></span> WITA
-        {{-- <div id="digit_clock_date"></div> --}}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="p-1 bg-info"></div>
-
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    @forelse ($web->banners('banner') as $key => $item)
-    <div class="carousel-item {{ $key == 0 ? 'active' : ''}}">
-      <img src="{{ url($item->path) }}" class="d-block w-100">
-    </div>
-    @empty
-    <div class="carousel-item active">
-      <img src="https://via.placeholder.com/1000x200.png/ffc107" class="d-block w-100">
-    </div>
-    @endforelse
-  </div>
-</div>
-
 <nav class="px-2 py-2 navbar-expand-lg navbar-dark bg-primary">
   {{-- <a class="navbar-brand" href="#"></a> --}}
 
@@ -70,4 +33,44 @@
   </div>
 </nav>
 
+
 <div class="p-1 bg-info"></div>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    @forelse ($web->banners('banner') as $key => $item)
+    <div class="carousel-item {{ $key == 0 ? 'active' : ''}}">
+      <img src="{{ url($item->path) }}" class="d-block w-100">
+    </div>
+    @empty
+    <div class="carousel-item active">
+      <img src="https://via.placeholder.com/1000x200.png" class="d-block w-100">
+    </div>
+    @endforelse
+  </div>
+</div>
+
+<div class="p-1 bg-white"></div>
+
+<div class="container">
+  <div class="d-flex row bg-dark">
+    <div class="p-2 bg-primary text-white rounded-right">Breaking News !</div>
+    <div class="col-8 p-2 bg-dark">
+      <marquee class="text-white">
+        @foreach ($news as $index => $item)
+          <a href="{{ url("/post/".$item->slug) }}" class="text-warning"><i class="bi bi-file-richtext mr-2"></i>{{ $item->title }}</a> &nbsp; - &nbsp;
+        @endforeach
+      </marquee>
+    </div>
+    <div class="col p-2 bg-primary text-white rounded-left">
+      <div class="digital_clock_wrapper">
+        {{ date_indo(today()) }},
+        <span id="digit_clock_time"></span> WITA
+        {{-- <div id="digit_clock_date"></div> --}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="p-1 bg-white"></div>

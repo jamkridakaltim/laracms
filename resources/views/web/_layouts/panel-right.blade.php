@@ -116,8 +116,8 @@
   <div class="p-1 bg-info"></div>
   <div class="py-2 text-center">
     <a href="{{ $web->socialMedia('link_facebook')?:'#' }}" class="px-2 display-4 text-primary"><i class="bi bi-facebook"></i></a>
-    <a href="{{ $web->socialMedia('link_instagram')?:'#' }}" class="px-2 display-4 text-info"><i class="bi bi-instagram"></i></a>
+    <a href="{{ $web->socialMedia('link_instagram')?:'#' }}" class="px-2 display-4 text-danger"><i class="bi bi-instagram"></i></a>
     <a href="{{ $web->socialMedia('link_youtube')?:'#' }}" class="px-2 display-4 text-danger"><i class="bi bi-youtube"></i></a>
-    <a href="{{ $web->socialMedia('link_twitter')?:'#' }}" class="px-2 display-4 text-aqua"><i class="bi bi-twitter"></i></a>
+    <a href="{{ $web->socialMedia('link_twitter')?:'#' }}" class="px-2 display-4 text-info"><i class="bi bi-twitter"></i></a>
   </div>
 </div>
