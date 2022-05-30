@@ -13,7 +13,7 @@
       <a class="mr-2" href="#">
         <img src="{{ $image::postImage($post->id)->value('path') ? url($image::postImage($post->id)->value('path')) : asset('images/img-post.png') }}" class="img-fluid" alt="...">
       </a>
-      <div class="py-2">
+      <div class="py-2 px-4">
         {!! $post->content !!}
       </div>
     </div>
