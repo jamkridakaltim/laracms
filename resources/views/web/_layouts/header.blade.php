@@ -50,7 +50,7 @@
   </div>
 </div>
 
-<div class="p-1 bg-white"></div>
+<div class="p-1 bg-primary"></div>
 
 <div class="container">
   <div class="d-flex row bg-dark">
@@ -71,6 +71,4 @@
     </div>
   </div>
 </div>
-
-
 <div class="p-1 bg-white"></div>

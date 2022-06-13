@@ -18,7 +18,7 @@
         {{-- {!! $page->content !!} --}}
         <div class="bg-white">
           <table class="table table-sm table-bordered table-hover">
-            <thead class="bg-green">
+            <thead class="bg-primary">
               {{-- <th class="text-white text-center" width="50">#</th> --}}
               <th class="text-white">Tanggal/Pukul</th>
               <th class="text-white">Agenda</th>
