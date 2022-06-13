@@ -13,7 +13,7 @@
       {{-- <a class="mr-2" href="#">
         <img src="https://indagkop.kaltimprov.go.id/asset/foto_berita/halbi.jpg" class="img-fluid" alt="...">
       </a> --}}
-      <div class="py-2">
+      <div class="py-2 px-4">
         {{-- <h5 class="mt-0">{{ $page->title }}</h5> --}}
         {!! $page->content !!}
       </div>
