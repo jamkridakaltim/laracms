@@ -27,17 +27,17 @@ class UploadController extends Controller
 
     public function form($id = null)
     {
-        if(!is_null($id)){
-            if($id){
+        if (!is_null($id)) {
+            if ($id) {
                 $upload = Upload::find($id);
                 session()->flashInput(array_merge($upload->toArray(), old()));
-            }else{
+            } else {
                 session()->flashInput(old());
             }
 
             $action = route('sitemanager.file.update', $id);
             $method = "PUT";
-        }else{
+        } else {
             $action = route('sitemanager.file.store');
             $method = "POST";
         }
@@ -48,6 +48,7 @@ class UploadController extends Controller
             'banner-top',
             'banner-middle',
             'banner-bottom',
+            'file'
             // 'footer',
         ];
 
@@ -66,37 +67,37 @@ class UploadController extends Controller
 
     public function save($id = null)
     {
-        if($id){
+        if ($id) {
             $upload = Upload::find($id);
-            if(request()->has('file')){
+            if (request()->has('file')) {
                 unlink(data_get($upload, 'path'));
             }
-        }else{
+        } else {
             $upload = new Upload;
         }
 
-        if(request()->has('file')){
+        if (request()->has('file')) {
 
             $file = request()->file('file');
             $original_name = $file->getClientOriginalName();
             $extension = $file->extension();
 
-            if(empty($extension)){
+            if (empty($extension)) {
                 $extension = explode('.', $original_name);
                 $extension = end($extension);
             }
 
-            $file_name = Str::slug($original_name).'.'.$extension;
-            $directory = 'storage/'.(request()->input('type')?:'foto').'/';
-            $path = $directory.$file_name;
-            $file->move($directory,$file_name);
+            $file_name = Str::slug($original_name) . '.' . $extension;
+            $directory = 'storage/' . (request()->input('type') ?: 'foto') . '/';
+            $path = $directory . $file_name;
+            $file->move($directory, $file_name);
             $upload->name  = $file_name;
             $upload->path  = $path;
         }
 
         // $upload->field = 'post';
 
-        $upload->type  = request()->input('type')?:'foto';
+        $upload->type  = request()->input('type') ?: 'foto';
         $upload->save();
 
         $message = sprintf("Data Telah di %s", $id ? 'simpan' : 'tambahkan');
@@ -107,16 +108,15 @@ class UploadController extends Controller
     public function destroy($id)
     {
         $upload = Upload::find($id);
-        if($upload){
+        if ($upload) {
             unlink($upload->path);
             $upload->delete();
-            if(request()->get('post')){
+            if (request()->get('post')) {
                 return redirect()->back()->withMessage('Data Telah Dihapus');
             }
             return redirect()->route('sitemanager.file.index')->withMessage('Data Telah Dihapus');
         }
 
         return redirect()->back()->withError('Data Tidak Ditemukan');
-
     }
 }
