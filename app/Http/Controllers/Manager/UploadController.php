@@ -80,14 +80,15 @@ class UploadController extends Controller
 
             $file = request()->file('file');
             $original_name = $file->getClientOriginalName();
-            $extension = $file->extension();
+            // $extension = $file->getClientOriginalExtension();
 
-            if (empty($extension)) {
-                $extension = explode('.', $original_name);
-                $extension = end($extension);
-            }
+            // if (empty($extension)) {
+            //     $extension = explode('.', $original_name);
+            //     $extension = end($extension);
+            // }
 
-            $file_name = Str::slug($original_name) . '.' . $extension;
+            // $file_name = Str::slug($original_name) . '.' . $extension;
+            $file_name = Str::slug($original_name);
             $directory = 'storage/' . (request()->input('type') ?: 'foto') . '/';
             $path = $directory . $file_name;
             $file->move($directory, $file_name);
