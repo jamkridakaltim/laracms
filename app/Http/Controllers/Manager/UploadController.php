@@ -48,6 +48,7 @@ class UploadController extends Controller
             'banner-top',
             'banner-middle',
             'banner-bottom',
+            'file'
             // 'footer',
         ];
 
@@ -82,12 +83,17 @@ class UploadController extends Controller
             $extension = $file->extension();
 
             if(empty($extension)){
-                $extension = explode('.', $original_name);
+              $extension = explode('.', $original_name);
                 $extension = end($extension);
             }
 
-            $file_name = Str::slug($original_name).'.'.$extension;
-            $directory = 'storage/'.(request()->input('type')?:'foto').'/';
+	    if(request()->input('type') == 'file'){
+	     	$file_name = $original_name;
+            } else {
+            	$file_name = Str::slug($original_name).'.'.$extension;
+            }
+
+	    $directory = 'storage/'.(request()->input('type')?:'foto').'/';
             $path = $directory.$file_name;
             $file->move($directory,$file_name);
             $upload->name  = $file_name;
@@ -117,6 +123,5 @@ class UploadController extends Controller
         }
 
         return redirect()->back()->withError('Data Tidak Ditemukan');
-
     }
 }

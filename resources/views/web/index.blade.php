@@ -16,7 +16,7 @@
       @foreach ($news as $index => $item)
       <div class="carousel-item {{ $index == 0 ? 'active' : ''}}">
         <div class="media p-3">
-          <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="200" class="mr-3" alt="...">
+          <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.jpeg') }}" height="200" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-primary font-weight-bold"><h5 class="h3 mt-0">{{ $item->title }}</h5></a>
             {{ tagline($item->content, 500) }}
@@ -50,7 +50,7 @@
     <div class="p-2">
         @foreach ($news as $index => $item)
         <div class="media py-2">
-          <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+          <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.jpeg') }}" height="64" class="mr-3" alt="...">
           <div class="media-body">
             <a href="{{ url("/post/".$item->slug) }}" class="text-primary font-weight-bold">{{ $item->title }}</a>
             <p>{{ tagline($item->content, 200) }}</p>
@@ -74,7 +74,7 @@
         <div class="p-2">
           @foreach ($news as $index => $item)
           <div class="media py-2">
-            <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+            <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.jpeg') }}" height="64" class="mr-3" alt="...">
             <div class="media-body">
               <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
               <p class="small text-primary">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
@@ -84,31 +84,6 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-6 col-sm-12">
-      <div class="card border-white">
-        <div class="px-4 py-3 bg-primary text-white">
-          <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> ARTIKEL JAMKRIDAKALTIM</span>
-        </div>
-        <div class="p-1 bg-info"></div>
-        <div class="p-2">
-          @foreach ($article as $index => $item)
-          <div class="media py-2">
-            <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
-            <div class="media-body">
-              <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
-              <p class="small text-primary">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
-            </div>
-          </div>
-          @endforeach
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {{-- <img src="{{ url('/images/banner_mid.jpg') }}" class="img-fluid"> --}}
-  <img src="{{ $web->banner('banner-middle')->first() ? url($web->banner('banner-middle')->value('path')) : 'https://via.placeholder.com/1000x150.png' }}" class="img-fluid">
-
-  <div class="row py-4">
     <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
         <div class="px-4 py-3 bg-primary text-white">
@@ -118,7 +93,7 @@
         <div class="p-2">
           @foreach ($announcement as $index => $item)
           <div class="media py-2">
-            <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+            <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.jpeg') }}" height="64" class="mr-3" alt="...">
             <div class="media-body">
               <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
               <p class="small text-primary">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
@@ -128,7 +103,51 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-6 col-sm-12">
+    {{-- <div class="col-lg-6 col-sm-12">
+      <div class="card border-white">
+        <div class="px-4 py-3 bg-primary text-white">
+          <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> ARTIKEL JAMKRIDAKALTIM</span>
+        </div>
+        <div class="p-1 bg-info"></div>
+        <div class="p-2">
+          @foreach ($article as $index => $item)
+          <div class="media py-2">
+            <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.jpeg') }}" height="64" class="mr-3" alt="...">
+            <div class="media-body">
+              <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
+              <p class="small text-primary">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div>
+    </div> --}}
+  </div>
+
+  {{-- <img src="{{ url('/images/banner_mid.jpg') }}" class="img-fluid"> --}}
+  {{-- <img src="{{ $web->banner('banner-middle')->first() ? url($web->banner('banner-middle')->value('path')) : 'https://via.placeholder.com/1000x150.png' }}" class="img-fluid"> --}}
+
+  <div class="row py-4">
+    {{-- <div class="col-lg-6 col-sm-12">
+      <div class="card border-white">
+        <div class="px-4 py-3 bg-primary text-white">
+          <span class="font-weight-bold"><i class="bi-newspaper mr-2"></i> PENGUMUMAN</span>
+        </div>
+        <div class="p-1 bg-info"></div>
+        <div class="p-2">
+          @foreach ($announcement as $index => $item)
+          <div class="media py-2">
+            <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.jpeg') }}" height="64" class="mr-3" alt="...">
+            <div class="media-body">
+              <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
+              <p class="small text-primary">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div>
+    </div> --}}
+    {{-- <div class="col-lg-6 col-sm-12">
       <div class="card border-white">
         <div class="px-4 py-3 bg-primary text-white">
           <span class="font-weight-bold"><i class="bi-journal-text mr-2"></i> NASIONAL</span>
@@ -137,7 +156,7 @@
         <div class="p-2">
           @foreach ($national as $index => $item)
           <div class="media py-2">
-            <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.png') }}" height="64" class="mr-3" alt="...">
+            <img src="{{ $image::postImage($item->id)->value('path') ? url($image::postImage($item->id)->value('path')) : asset('images/img-post.jpeg') }}" height="64" class="mr-3" alt="...">
             <div class="media-body">
               <a href="{{ url("/post/".$item->slug) }}" class="text-dark font-weight-bold">{{ $item->title }}</a>
               <p class="small text-primary">{{ date_indo($item->published_at) }} / {{ $item->read }} view</p>
@@ -146,7 +165,7 @@
           @endforeach
         </div>
       </div>
-    </div>
+    </div> --}}
   </div>
 
 @endsection

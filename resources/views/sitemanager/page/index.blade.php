@@ -19,7 +19,7 @@
         @forelse ($page as $index => $item )
         <tr>
           <td class="text-center">{{ $index + 1 }}</td>
-          <td>{{ $item->menu->name }}</td>
+          <td>{{ data_get($item,'menu.name') }}</td>
           <td>{{ $item->title }}</td>
           <td class="text-center text-{{ $item->status == 1 ? 'success' : 'danger' }}">{{ $item->status == 1 ? 'On' : 'Off' }}</td>
           <td class="text-center">

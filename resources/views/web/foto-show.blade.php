@@ -8,12 +8,12 @@
     </div>
     <div class="row mt-4">
       @foreach ($gallery as $index => $item)
-    <div class="col-md-4">
-      <div class="card mb-4 shadow-sm">
-        <img src="{{ url($item->link)}}" class="card-img-top p-2" width="100%" height="225">
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="{{ url($item->link)}}" class="card-img-top p-2" width="100%" height="225">
+        </div>
       </div>
+      @endforeach
     </div>
-    @endforeach
-  </div>
   </div>
 @endsection
